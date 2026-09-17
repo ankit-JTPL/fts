@@ -1,19 +1,80 @@
-venv/
-__pycache__/
-*.pyc
-db.sqlite3
-env/
-.DS_Store
-staticfiles/
-node_modules
+# ==========================================
+# Sensitive Credentials & Environment Files
+# ==========================================
+.env
+.env.*
+*.env
+env.json
+secrets.json
+local_settings.py
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+*.p12
 
-# migrations optional
+# ==========================================
+# Virtual Environments
+# ==========================================
+venv/
+env/
+ENV/
+.venv/
+
+# ==========================================
+# Python & Bytecode
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ==========================================
+# Django & Local Databases
+# ==========================================
+*.sqlite3
+db.sqlite3-journal
+staticfiles/
+media/
+
+# Migrations (keeps folder structure intact)
 **/migrations/*
 !**/migrations/__init__.py
 
-
-
-# videos
+# ==========================================
+# Media & Heavy Static Assets
+# ==========================================
 fts/static/videos/
 *.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
 
+# ==========================================
+# Node / Frontend
+# ==========================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ==========================================
+# Logs & System Junk
+# ==========================================
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==========================================
+# IDE & Code Editors
+# ==========================================
+.idea/
+.vscode/
+*.swp
+*.swo
