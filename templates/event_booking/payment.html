@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Complete Payment | Future Tech Summit {% endblock %}
+{% block content %}
+<section
+    class="w-full min-h-[80vh] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 relative"
+    style="background-color: var(--bg-main)"
+    >
+    <div class="max-w-xl mx-auto w-full relative z-10">
+
+        <div class="w-full text-center space-y-3 mb-10 select-none">
+            <span class="fade-up heading-tag">ONE LAST STEP</span>
+            <h2 class="fade-up primary-title">Complete Your Payment</h2>
+        </div>
+
+        <div
+            class="fade-up bg-white rounded-[2rem] border border-slate-200 shadow-[0_15px_50px_-15px_rgba(0,0,0,0.08)] p-8 space-y-6"
+            >
+            <!-- Order Summary -->
+            <div class="space-y-4 pb-6 border-b border-[var(--border)]">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold uppercase tracking-widest text-[var(--text-dark)]">Event</span>
+                    <span class="text-sm font-bold text-[var(--black)] text-right">{{ user_details.event_details.title }}</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold uppercase tracking-widest text-[var(--text-dark)]">Name</span>
+                    <span class="text-sm font-bold text-[var(--black)]">{{ user_details.full_name }}</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold uppercase tracking-widest text-[var(--text-dark)]">Tickets</span>
+                    <span class="text-sm font-bold text-[var(--black)]">{{ user_details.quantity }}</span>
+                </div>
+            </div>
+
+            <!-- Total Amount Strip -->
+            <div class="flex items-center justify-between">
+                <span class="text-sm text-[var(--text-dark)]">Total Amount</span>
+                <span class="text-3xl font-black text-[var(--black)]">₹{{ amount }}</span>
+            </div>
+
+            <!-- Payment Button -->
+            <button
+                id="rzp-button1"
+                class="btn btn-primary w-full justify-center text-center mt-2"
+                >
+                <span>Pay Now</span>
+            </button>
+
+            <p class="text-[11px] text-center text-[var(--text-dark)]/60 leading-relaxed pt-2">
+                <i class="fa-solid fa-lock text-[var(--primary)] mr-1"></i>
+                Payments are securely processed via Razorpay.
+            </p>
+        </div>
+    </div>
+</section>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    var options = {
+        "key": "{{ razorpay_key }}",
+        "amount": "{{ amount_in_paise }}",
+        "currency": "INR",
+        "name": "{{ user_details.event_details.title }}",
+        "order_id": "{{ order_id }}",
+        "callback_url": window.location.origin + "{% url 'payment-success' %}",
+        "redirect": true,
+        "prefill": {
+            "name": "{{ user_details.full_name }}",
+            "email": "{{ user_details.email }}",
+            "contact": "{{ user_details.phone }}"
+        },
+        "theme": {
+            "color": "#ec4899"
+        }
+    };
+
+    var rzp1 = new Razorpay(options);
+
+    document.getElementById('rzp-button1').onclick = function(e){
+        e.preventDefault();
+        this.disabled = true;
+        this.innerText = "Connecting to Gateway...";
+        rzp1.open();
+    };
+</script>
+{% endblock %}

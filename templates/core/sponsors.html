@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Sponsor | Future Tech Summit {% endblock %}
+{% block content %}
+
+<!-- Sponsor Hero -->
+<section class="w-full py-24 px-4 sm:px-6 lg:px-8 text-center text-white relative overflow-hidden"
+style="background-image: var(--primary-gradient)">
+    <div class="max-w-4xl mx-auto relative z-10 space-y-4">
+        <span class="fade-up heading-tag">PARTNER WITH US</span>
+        <h2 class="zoom-in primary-title text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tighter text-white">
+             Sponsor
+        </h2>
+        <p class="fade-up text-sm sm:text-base text-[var(--text-light)] max-w-4xl mx-auto leading-relaxed">
+           The Future Tech Summit provides exclusive, customized sponsorship opportunities tailored to your organization's 
+           objectives and budget. As a sponsor, you will benefit from enhanced brand visibility, direct engagement with industry leaders, 
+           and valuable networking opportunities with potential clients before, during, and after the event. Sponsorship enables you to position 
+           your company as an industry leader, showcase your expertise, and gain strategic exposure through high-impact branding, thought leadership 
+           sessions, and exclusive partnership benefits. Align with the Future Tech Summit to maximize your reach,
+            strengthen your market presence, and be at the forefront of innovation and technological advancements.
+        </p>
+    </div>
+</section>
+
+
+
+<!-- Why Sponsor -->
+<section class="w-full py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+>
+    <div class="max-w-7xl mx-auto relative z-10 space-y-10">
+        <div class="text-center space-y-3">
+            <span class="fade-up heading-tag">BENEFITS</span>
+            <h2 class="zoom-in primary-title text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tighter">
+                Why Sponsor
+            </h2>
+        </div>
+
+        <div class="stagger-wrapper grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                <img src="{% static 'icons/sponsors/why-sponsor/leads.png' %}" alt="Leads" class="w-16 h-16 rounded-2xl bg-pink-200 p-2 flex items-center justify-center shadow-[0_8px_20px_-6px_rgba(219,39,119,0.4)] mb-6"/>
+                <h4 class="text-[24px] tracking-tight text-[#060c3c]">Leads</h4>
+            </div>
+
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                <img src="{% static 'icons/sponsors/why-sponsor/positioning.png' %}" alt="Positioning" class="w-16 h-16 rounded-2xl bg-pink-200 p-2 flex items-center justify-center shadow-[0_8px_20px_-6px_rgba(219,39,119,0.4)] mb-6"/>
+                <h4 class="text-[24px] tracking-tight text-[#060c3c]">Positioning</h4>
+            </div>
+
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                <img src="{% static 'icons/sponsors/why-sponsor/strategic-partnerships.png' %}" alt="Strategic Partnerships" class="w-16 h-16 rounded-2xl bg-pink-200 p-2 flex items-center justify-center shadow-[0_8px_20px_-6px_rgba(219,39,119,0.4)] mb-6"/>
+
+                <h4 class="text-[24px] tracking-tight text-[#060c3c]">Strategic Partnerships</h4>
+            </div>
+
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                <img src="{% static 'icons/sponsors/why-sponsor/brand-visibility.png' %}" alt="Brand Visibility" class="w-16 h-16 rounded-2xl bg-pink-200 p-2 flex items-center justify-center shadow-[0_8px_20px_-6px_rgba(219,39,119,0.4)] mb-6"/>
+
+                <h4 class="text-[24px] tracking-tight text-[#060c3c]">Brand Visibility</h4>
+            </div>
+
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                                <img src="{% static 'icons/sponsors/why-sponsor/industry-leadership.png' %}" alt="Industry Leadership" class="w-16 h-16 rounded-2xl bg-pink-200 p-2 flex items-center justify-center shadow-[0_8px_20px_-6px_rgba(219,39,119,0.4)] mb-6"/>
+
+                <h4 class="text-[24px] tracking-tight text-[#060c3c]">Industry Leadership</h4>
+            </div>
+
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                                <img src="{% static 'icons/sponsors/why-sponsor/mediacoverage.png' %}" alt="Media Coverage" class="w-16 h-16 rounded-2xl bg-pink-200 p-2 flex items-center justify-center shadow-[0_8px_20px_-6px_rgba(219,39,119,0.4)] mb-6"/>
+
+                <h4 class="text-[24px] tracking-tight text-[#060c3c]">Media Coverage</h4>
+            </div>
+
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                                <img src="{% static 'icons/sponsors/why-sponsor/exclusive-exposure.png' %}" alt="Exclusive Exposure" class="w-16 h-16 rounded-2xl bg-pink-200 p-2 flex items-center justify-center shadow-[0_8px_20px_-6px_rgba(219,39,119,0.4)] mb-6"/>
+
+                <h4 class="text-[24px] tracking-tight text-[#060c3c]">Exclusive Exposure</h4>
+            </div>
+
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                                <img src="{% static 'icons/sponsors/why-sponsor/competitive-advantage.png' %}" alt="Competitive Advantage" class="w-16 h-16 rounded-2xl bg-pink-200 p-2 flex items-center justify-center shadow-[0_8px_20px_-6px_rgba(219,39,119,0.4)] mb-6"/>
+
+                <h4 class="text-[24px] tracking-tight text-[#060c3c]">Competitive Advantage</h4>
+            </div>
+
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                                <img src="{% static 'icons/sponsors/why-sponsor/business-growth.png' %}" alt="Business Growth" class="w-16 h-16 rounded-2xl bg-pink-200 p-2 flex items-center justify-center shadow-[0_8px_20px_-6px_rgba(219,39,119,0.4)] mb-6"/>
+
+                <h4 class="text-[24px] tracking-tight text-[#060c3c]">Business Growth</h4>
+            </div>
+
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                                <img src="{% static 'icons/sponsors/why-sponsor/expertise.png' %}" alt="Expertise" class="w-16 h-16 rounded-2xl bg-pink-200 p-2 flex items-center justify-center shadow-[0_8px_20px_-6px_rgba(219,39,119,0.4)] mb-6"/>
+
+                <h4 class="text-[24px] tracking-tight text-[#060c3c]">Expertise</h4>
+            </div>
+
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                                <img src="{% static 'icons/sponsors/why-sponsor/networking.png' %}" alt="Networking" class="w-16 h-16 rounded-2xl bg-pink-200 p-2 flex items-center justify-center shadow-[0_8px_20px_-6px_rgba(219,39,119,0.4)] mb-6"/>
+
+                <h4 class="text-[24px] tracking-tight text-[#060c3c]">Networking</h4>
+            </div>
+
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                <img src="{% static 'icons/sponsors/why-sponsor/product-showcase.png' %}" alt="Product Showcase" class="w-16 h-16 rounded-2xl bg-pink-200 p-2 flex items-center justify-center shadow-[0_8px_20px_-6px_rgba(219,39,119,0.4)] mb-6"/>
+
+                <h4 class="text-[24px] tracking-tight text-[#060c3c]">Product Showcase</h4>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FTS Sponsors & Partners -->
+<section class="w-full  bg-[#f8f9fa] py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+>
+    <div class="max-w-6xl mx-auto relative z-10 space-y-10">
+        <div class="text-center space-y-3">
+            <span class="fade-up heading-tag">OUR PARTNERS</span>
+            <h2 class="zoom-in primary-title text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tighter">
+                FTS Sponsors &amp; Partners
+            </h2>
+        </div>
+
+        <div class="stagger-wrapper grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                <img src="{% static 'images/sponsors/sponsors-partners/amity.jpg' %}" alt="Amity University" class="max-h-16 max-w-full object-contain">
+            </div>
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                <img src="{% static 'images/sponsors/sponsors-partners/carbon-light.jpg' %}" alt="Carbon Light" class="max-h-16 max-w-full object-contain">
+            </div>
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                <img src="{% static 'images/sponsors/sponsors-partners/iffaad.jpg' %}" alt="IFFAAD" class="max-h-16 max-w-full object-contain">
+            </div>
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                <img src="{% static 'images/sponsors/sponsors-partners/johnnette.jpg' %}" alt="Johnnette Technologies" class="max-h-16 max-w-full object-contain">
+            </div>
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                <img src="{% static 'images/sponsors/ainfinite.jpg' %}" alt="ainfinite" class="max-h-16 max-w-full object-contain">
+            </div>
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                <img src="{% static 'images/sponsors/sponsors-partners/johnnette-space.jpg' %}" alt="Johnnette Space" class="max-h-16 max-w-full object-contain">
+            </div>
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                <img src="{% static 'images/sponsors/sponsors-partners/infralog.jpg' %}" alt="Infralog Publication" class="max-h-16 max-w-full object-contain">
+            </div>
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                <img src="{% static 'images/sponsors/sponsors-partners/livingstone-coffee.jpg' %}" alt="Livingstone Coffee" class="max-h-16 max-w-full object-contain">
+            </div>
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                <img src="{% static 'images/sponsors/sponsors-partners/pbs-india.jpg' %}" alt="PBS India" class="max-h-16 max-w-full object-contain">
+            </div>
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                <img src="{% static 'images/sponsors/sponsors-partners/lv.jpg' %}" alt="lv" class="max-h-16 max-w-full object-contain">
+            </div>
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                <img src="{% static 'images/sponsors/sponsors-partners/kashnaar.jpg' %}" alt="kashnaar" class="max-h-16 max-w-full object-contain">
+            </div>
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                <img src="{% static 'images/sponsors/sponsors-partners/shakti.jpg' %}" alt="kashnaar" class="max-h-16 max-w-full object-contain">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Media Partners -->
+<section class="w-full  py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto relative z-10 space-y-10">
+        <div class="text-center space-y-3">
+            <span class="fade-up heading-tag">IN THE PRESS</span>
+            <h2 class="zoom-in primary-title text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tighter ">
+                Media Partners
+            </h2>
+        </div>
+
+        <div class="stagger-wrapper grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                <img src="{% static 'images/sponsors/media-partners/future-tech.jpg' %}" alt="Future Tech" class="max-h-16 max-w-full object-contain">
+            </div>
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                <img src="{% static 'images/sponsors/media-partners/infra-log.jpg' %}" alt="Infra Log" class="max-h-16 max-w-full object-contain">
+            </div>
+            <div class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group">
+                <img src="{% static 'images/sponsors/media-partners/raksha-anirveda.jpg' %}" alt="Raksha Anirveda" class="max-h-16 max-w-full object-contain">
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

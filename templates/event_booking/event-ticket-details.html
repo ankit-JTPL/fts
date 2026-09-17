@@ -1,0 +1,273 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Event Tickets Details | Future Tech Summit {% endblock %}
+{% block content %}
+
+<!-- ================= HERO: GRADIENT RESERVED FOR HERO ONLY ================= -->
+<section class="w-full py-24 px-4 sm:px-6 lg:px-8 text-center text-white relative overflow-hidden"
+style="background-image: var(--primary-gradient)">
+    <div class="max-w-4xl mx-auto relative z-10 space-y-4">
+        <span class="fade-up heading-tag">{{event_details.subtitle}}</span>
+        <h2 class="zoom-in primary-title text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tighter text-white">
+            {{event_details.title}}
+        </h2>
+         <a
+            href="{% url 'event-tickets' %}"
+            class="fade-up inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/70 hover:text-white transition-colors"
+            >
+            ← Back to All Passes
+        </a>
+    </div>
+</section>
+
+<!-- ================= MAIN DETAIL: LIGHT SECTION ================= -->
+<section class="w-full py-20 px-4 sm:px-6 lg:px-8 relative" style="background-color: var(--bg-main)">
+    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
+
+        <!-- LEFT: DESCRIPTION + FEATURES -->
+        <div class="lg:col-span-7 space-y-10 text-left">
+            <div class="space-y-4">
+                <h3 class="fade-up text-xl font-bold uppercase tracking-wide text-[var(--black)]">
+                     About the Event
+                </h3>
+               
+                <p class="fade-up text-sm sm:text-base text-[var(--text-dark)] leading-relaxed">
+                    {{event_details.description|safe}}
+                </p>
+            </div>
+            <!-- VENUE MAP -->
+            <div class="space-y-4">
+                <h3 class=" text-xl font-bold uppercase tracking-wide text-[var(--black)]">
+                    Venue Location
+                </h3>
+                <div class=" space-y-1 pb-2">
+                    <p class="text-sm font-bold text-[var(--black)]">{{event_details.venue}}</p>
+                    <p class="text-sm text-[var(--text-dark)] leading-relaxed">
+                        {{event_details.address}}
+                    </p>
+                </div>
+                <div
+                    class="fade-up w-full aspect-[16/9] rounded-[2rem] overflow-hidden border border-slate-200 shadow-[0_15px_50px_-15px_rgba(0,0,0,0.08)]"
+                    >
+                    <iframe
+                        src="{{event_details.map_url}}"
+                        class="w-full h-full border-0"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Venue location map"
+                        >
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT: STICKY PURCHASE CARD -->
+        <div class="lg:col-span-5">
+            <div
+                class="lg:sticky lg:top-24 bg-white rounded-[2rem] border border-slate-200 p-8 shadow-[0_15px_50px_-15px_rgba(0,0,0,0.08)] space-y-6"
+                >
+                <div class="space-y-1">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-widest text-[var(--primary)]">
+                            {{event_details.subtitle}}
+                        </span>
+                        <!-- STATUS BADGE -->
+                        {% if event_details.is_active %}
+                            <span class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-green-100 text-green-700">
+                               Active
+                            </span>
+                        {% else %}
+                         <!-- Completed state (use instead of the badge above when event has ended):       -->
+                        <span class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-slate-200 text-slate-600">
+                            Completed
+                        </span>
+                  
+                        
+                        {% endif %}
+                         
+                       
+                    </div>
+                     <h3 class="text-[20px] font-black uppercase tracking-tight text-[var(--black)]">
+                           {{event_details.title}}
+                        </h3>
+                    <div class="flex items-end gap-2">
+                        <span class="text-4xl font-black text-[var(--black)]"> ₹{{event_details.price}}</span>
+                        <span class="text-sm text-[var(--text-dark)] pb-1">/ person</span>
+                    </div>
+                </div>
+
+              
+                    <!-- Meta Badges: Date, Time, Venue -->
+                    <div class="flex flex-wrap gap-3 text-[11px] pt-6 pb-6 border-y border-slate-200">
+                        <span class="bg-slate-100 px-3 py-1.5 rounded-full flex items-center gap-2 text-[var(--text-dark)]">
+                            <i class="fa-regular fa-calendar text-[var(--primary)]"></i>
+                            {{ event_details.start_date|date:"d  F  Y" }} <b>TO </b> {{ event_details.end_date|date:"d  F  Y"}}
+                        </span>
+                        <span class="bg-slate-100 px-3 py-1.5 rounded-full flex items-center gap-2 text-[var(--text-dark)]">
+                            <i class="fa-regular fa-clock text-[var(--primary)]"></i>
+                           {{ event_details.start_time |time:"g:i A"  }} <b>TO </b> {{ event_details.end_time|time:"g:i A"}}
+                        </span>
+                        <span class="bg-slate-100 px-3 py-1.5 rounded-full flex items-center gap-2 text-[var(--text-dark)]">
+                            <i class="fa-solid fa-location-dot text-[var(--primary)]"></i>
+                            {{ event_details.venue }}
+                        </span>
+                          <span class="bg-slate-100 px-3 py-1.5 rounded-full flex items-center gap-2 text-[var(--text-dark)]">
+                            <i class="fa-solid fa-building text-[var(--primary)]"></i>
+                            <b class="uppercase">Organized By: </b> {{ event_details.organizer }}
+                        </span>
+                    </div>
+                <button type="button" onclick="document.getElementById('userDetailModal').classList.remove('hidden')" class="btn btn-primary w-full justify-center text-center">
+                    <span>Buy This Pass</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ USER DETAIL MODAL ============ -->
+<div id="userDetailModal" class="hidden fixed inset-0 z-50 flex items-center justify-center px-4">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-black/60" onclick="document.getElementById('userDetailModal').classList.add('hidden')"></div>
+    <!-- Modal Card -->
+    <div class="relative w-full max-w-md bg-white rounded-[2rem] border border-slate-200 shadow-2xl p-8 space-y-6 z-10">
+        <!-- Close Button -->
+        <button type="button" onclick="document.getElementById('userDetailModal').classList.add('hidden')" class="absolute top-6 right-6 w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center text-[var(--text-dark)] hover:bg-slate-200 transition-colors">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Header -->
+        <div class="space-y-2 pr-8">
+            <span class="text-xs font-bold uppercase tracking-widest text-[var(--primary)]">
+                {{event_details.subtitle}}
+            </span>
+            <h3 class="text-2xl font-black uppercase tracking-tight text-[var(--black)]"> Your Details </h3>
+            <p class="text-sm text-[var(--text-dark)] leading-relaxed"> Enter your details below to continue to payment. </p>
+        </div>
+
+        <!-- Form -->
+        <form method="POST" class="space-y-4">
+            {% csrf_token %}
+            <div class="space-y-1.5">
+                <label class="text-xs font-bold uppercase tracking-widest text-[var(--text-dark)]">
+                    Full Name
+                </label>
+                <input
+                    type="text"
+                    name="full_name"
+                    placeholder="Enter your full name"
+                    required
+                    class="w-full px-4 py-3 rounded-2xl border border-slate-200 text-sm text-[var(--black)] placeholder:text-slate-400 focus:outline-none focus:border-[var(--primary)] transition-colors"
+                    />
+            </div>
+
+            <div class="space-y-1.5">
+                <label class="text-xs font-bold uppercase tracking-widest text-[var(--text-dark)]">
+                    Email Address
+                </label>
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    required
+                    class="w-full px-4 py-3 rounded-2xl border border-slate-200 text-sm text-[var(--black)] placeholder:text-slate-400 focus:outline-none focus:border-[var(--primary)] transition-colors"
+                    />
+            </div>
+
+            <div class="space-y-1.5">
+                <label class="text-xs font-bold uppercase tracking-widest text-[var(--text-dark)]">
+                    Phone Number
+                </label>
+                <input
+                    type="tel"
+                    name="phone"
+                    placeholder="+91 00000 00000"
+                    required
+                    class="w-full px-4 py-3 rounded-2xl border border-slate-200 text-sm text-[var(--black)] placeholder:text-slate-400 focus:outline-none focus:border-[var(--primary)] transition-colors"
+                    />
+            </div>
+
+            <div class="space-y-1.5">
+                <label class="text-xs font-bold uppercase tracking-widest text-[var(--text-dark)]">
+                    Organization <span class="text-slate-400 normal-case font-normal">(optional)</span>
+                </label>
+                <input
+                    type="text"
+                    name="organization"
+                    placeholder="Company / Institution"
+                    class="w-full px-4 py-3 rounded-2xl border border-slate-200 text-sm text-[var(--black)] placeholder:text-slate-400 focus:outline-none focus:border-[var(--primary)] transition-colors"
+                    />
+            </div>
+            <div class="space-y-1.5">
+                <label class="text-xs font-bold uppercase tracking-widest text-[var(--text-dark)]">
+                    Quantity
+                </label>
+                <div class="quantity flex items-center justify-between w-full px-2 py-2 rounded-2xl border border-slate-200">
+                    <button
+                        type="button"
+                        id="minus"
+                        class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-lg font-bold text-[var(--black)] hover:bg-slate-200 transition-colors"
+                        >
+                        −
+                    </button>
+
+                    <input
+                        type="number"
+                        id="quantity"
+                        name="quantity"
+                        value="1"
+                        min="1"
+                        class="w-16 text-center text-lg font-bold text-[var(--black)] bg-transparent focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                        />
+
+                    <button
+                        type="button"
+                        id="plus"
+                        class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-lg font-bold text-[var(--black)] hover:bg-slate-200 transition-colors"
+                        >
+                        +
+                    </button>
+                </div>
+            </div>
+            <!-- Order Summary Strip -->
+            <div class="flex items-center justify-between pt-4 border-t border-slate-200">
+                <span class="font-bold uppercase  text-[var(--text-dark)]">Total Amount: </span>
+                <span id="total-price" class="text-2xl font-black text-[var(--black)]">₹ {{event_details.price}}</span>
+            </div>
+
+            <button
+                type="submit"
+                class="btn btn-primary w-full justify-center text-center mt-2"
+                >
+                <span>Proceed to Payment</span>
+            </button>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    const price = Number("{{ event_details.price }}");
+    const quantityInput = document.getElementById("quantity");
+    const totalPrice = document.getElementById("total-price");
+    const plus = document.getElementById("plus");
+    const minus = document.getElementById("minus");
+    function updateTotal() {
+        const quantity = Number(quantityInput.value);
+        totalPrice.textContent = (price * quantity).toFixed(2);
+    }
+    plus.addEventListener("click", function () {
+        quantityInput.value = Number(quantityInput.value) + 1;
+        updateTotal();
+    });
+    minus.addEventListener("click", function () {
+        if (Number(quantityInput.value) > 1) {
+            quantityInput.value = Number(quantityInput.value) - 1;
+            updateTotal();
+        }
+    });
+    quantityInput.addEventListener("input", updateTotal);
+</script>
+
+{% endblock %}
+

@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Booking Confirmed | Future Tech Summit {% endblock %}
+{% block content %}
+
+<section
+    class="w-full min-h-[85vh] flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8 relative"
+    style="background-color: var(--bg-main)"
+    >
+    <div class="max-w-xl w-full bg-white rounded-[2rem] shadow-[0_15px_50px_-15px_rgba(0,0,0,0.08)] overflow-hidden border border-slate-200 relative z-10">
+        <!-- Top Status Banner -->
+        <div
+            class="p-10 text-center text-white relative bg-green-700"
+          
+            >
+            <div class="w-20 h-20 bg-white/15 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
+                <i class="fa-solid fa-check text-4xl text-white"></i>
+            </div>
+            <h1 class="text-2xl font-black uppercase tracking-tight">Payment Successful!</h1>
+            <p class="text-white/70 mt-1 text-sm">Your event ticket booking is confirmed.</p>
+        </div>
+        <!-- Flash Messages -->
+        {% if messages %}
+        <div class="px-8 pt-6">
+            {% for message in messages %}
+            <div class="p-4 rounded-xl text-sm bg-pink-50 text-[var(--black)] border border-pink-100">
+                <i class="fa-solid fa-circle-info mr-2 text-[var(--primary)]"></i>{{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <!-- Order & Booking Details -->
+        <div class="p-8 space-y-6">
+            <!-- Event Card Summary -->
+            <div class="rounded-2xl p-5 border border-slate-200" style="background-color: var(--bg-main)">
+                <span class="text-xs font-bold uppercase tracking-widest text-[var(--primary)] bg-pink-50 px-2.5 py-1 rounded-md">
+                    {{ user_details.order_status }}
+                </span>
+                <h2 class="text-xl font-black text-[var(--black)] mt-2">{{ user_details.event_details.title }}</h2>
+                <p class="text-sm text-[var(--text-dark)]">{{ user_details.event_details.subtitle }}</p>
+
+                <div class="grid grid-cols-2 gap-4 mt-4 pt-4 border-t border-slate-200 text-sm">
+                    <div>
+                        <p class="text-[var(--text-dark)]/70 text-xs uppercase font-bold tracking-widest">Date &amp; Time</p>
+                        <p class="font-bold text-[var(--black)] mt-0.5">
+                            {{ user_details.event_details.start_date }}
+                        </p>
+                        <p class="text-xs text-[var(--text-dark)]">
+                            {{ user_details.event_details.start_time|time:"h:i A" }} - {{ user_details.event_details.end_time|time:"h:i A" }}
+                        </p>
+                    </div>
+                    <div>
+                        <p class="text-[var(--text-dark)]/70 text-xs uppercase font-bold tracking-widest">Venue</p>
+                        <p class="font-bold text-[var(--black)] mt-0.5">{{ user_details.event_details.venue }}</p>
+                        <p class="text-xs text-[var(--text-dark)] truncate">{{ user_details.event_details.address }}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Transaction Breakdown -->
+            <div class="space-y-3 text-sm">
+                <div class="flex justify-between py-2 border-b border-slate-100">
+                    <span class="text-[var(--text-dark)]">Attendee Name</span>
+                    <span class="font-bold text-[var(--black)]">{{ user_details.full_name }}</span>
+                </div>
+                <div class="flex justify-between py-2 border-b border-slate-100">
+                    <span class="text-[var(--text-dark)]">Email Address</span>
+                    <span class="font-bold text-[var(--black)]">{{ user_details.email }}</span>
+                </div>
+                <div class="flex justify-between py-2 border-b border-slate-100">
+                    <span class="text-[var(--text-dark)]">Tickets Count</span>
+                    <span class="font-bold text-[var(--black)]">{{ user_details.quantity }} Pass(es)</span>
+                </div>
+                <div class="flex justify-between py-2 border-b border-slate-100">
+                    <span class="text-[var(--text-dark)]">Booking Reference UID</span>
+                    <span class="font-mono text-xs text-[var(--black)] bg-slate-100 px-2 py-0.5 rounded">{{ user_details.uid }}</span>
+                </div>
+                <div class="flex justify-between py-2 border-b border-slate-100">
+                    <span class="text-[var(--text-dark)]">Razorpay Payment ID</span>
+                    <span class="font-mono text-xs text-[var(--black)] bg-slate-100 px-2 py-0.5 rounded">{{ payment_id|default:user_details.razorpay_payment_id }}</span>
+                </div>
+                <div class="flex justify-between py-2 border-b border-slate-100">
+                    <span class="text-[var(--text-dark)]">Razorpay Order ID</span>
+                    <span class="font-mono text-xs text-[var(--black)] bg-slate-100 px-2 py-0.5 rounded">{{ order_id|default:user_details.razorpay_order_id }}</span>
+                </div>
+            </div>
+            <!-- Email Notification Notice -->
+            <div class="bg-pink-50 border border-pink-100 rounded-2xl p-4 flex items-start gap-3">
+                <i class="fa-solid fa-envelope-circle-check text-[var(--primary)] text-xl mt-0.5"></i>
+                <div class="text-xs text-[var(--black)] leading-relaxed">
+                    A confirmation email with your official <strong>PDF Ticket attachment</strong> has been sent to <strong>{{ user_details.email }}</strong>. Please carry a digital or printed copy to the venue.
+                </div>
+            </div>
+            <!-- Actions -->
+            <div class="pt-2 flex gap-3">
+                <a href="{% url 'event-tickets' %}"
+                   class="btn btn-primary flex-1 justify-center text-center">
+                    <span>Back to Events</span>
+                </a>
+                <button onclick="window.print()"
+                        class="flex-1 text-center bg-white hover:bg-slate-50 text-[var(--black)] border border-slate-300 font-bold py-3 px-4 rounded-full transition duration-200 text-sm">
+                    <i class="fa-solid fa-print mr-1.5"></i> Print Receipt
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  /* BASE BUTTON COMPONENT */
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-full px-6 py-3 text-[16px] font-semibold outline-none cursor-pointer shadow-sm transition-all duration-300;
+  }
+
+  .btn:active {
+    @apply scale-[0.98];
+  }
+
+  /* PRIMARY VARIANT (Starts Black, Gradient on Hover) */
+  .btn-primary {
+    @apply scale-[1.02] text-[var(--white)];
+    background-image: var(--gradient-btn-secondary);
+  }
+
+  .btn-primary:hover {
+    @apply scale-[1.02];
+    background-image: var(--gradient-btn);
+  }
+
+  /* SECONDARY VARIANT (Starts White, Ends Black on Hover) */
+  /* SECONDARY VARIANT (Starts Black, Ends White on Hover) */
+.btn-secondary {
+    @apply scale-[1.02] text-[var(--white)];
+    background-image: var(--gradient-btn);
+}
+
+.btn-secondary:hover {
+ @apply scale-[1.02] text-[var(--white)];
+    background-image: var(--gradient-btn-secondary);
+}
+  /* DECORATIVE LINE ACCENT WRAPPER FOR DESCRIPTION TAG */
+  .heading-tag {
+    @apply flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--primary)];
+  }
+
+  /* CUSTOM UTILITY FOR INTERNAL LINE ACCENTS */
+  .heading-tag::before,
+  .heading-tag::after {
+    content: '';
+    @apply w-6 h-[1px] bg-[var(--primary)] block;
+  }
+
+  /* MAIN AUTHORITY TITLE */
+  .primary-title {
+    @apply text-3xl sm:text-5xl font-black tracking-tight text-[var(--heading)] leading-[1.1] uppercase;
+  }
+}

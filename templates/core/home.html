@@ -1,0 +1,827 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %}Home | Future Tech Summit {% endblock %}
+{% block content %}
+<section
+    class="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden py-16 px-4 sm:px-6 lg:px-8"
+    >
+    <!-- 1. Running Background Video Layer -->
+    <video
+        autoplay
+        loop
+        muted
+        playsinline
+        class="absolute top-0 left-0 w-full h-full object-cover z-0 pointer-events-none"
+        >
+        <source src="{% static 'videos/hero.mp4' %}" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+    <!-- 2. SIMPLE DARK OVERLAY:-->
+    <div class="absolute top-0 left-0 w-full h-full z-10 bg-black/40"></div>
+</section>
+<section
+    class="w-full min-h-screen py-16 flex flex-col items-center justify-center relative overflow-x-hidden"
+    style="background-image: var(--gradient_secondary)"
+    >
+    <!-- Content Container -->
+    <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center flex flex-col items-center space-y-10 relative z-10"
+        >
+        <!-- HEADING AREA  -->
+        <div class="relative inline-block px-4 md:px-16 z-30">
+            <!-- Blue 3D Shape Mock -->
+            <div class="absolute -top-10 -left-6 sm:-left-12 md:-top-16 md:-left-9 w-12 h-12 sm:w-28 sm:h-28 animate-bounce duration-[3000ms] z-40">
+                <img
+                    src="{% static 'icons/home/shape1.webp' %}"
+                    alt=""
+                    class="w-full h-full object-contain filter drop-shadow-lg"
+                    />
+            </div>
+            <!-- Pink 3D Shape Mock  -->
+            <div class="absolute -top-12 -right-6 sm:-right-12 md:-top-50 md:-right-9 w-12 h-12 sm:w-28 sm:h-28 animate-bounce duration-[3000ms] z-40">
+                <img
+                    src="{% static 'icons/home/shape2.webp' %}"
+                    alt=""
+                    class="w-full h-full object-contain filter drop-shadow-lg"
+                    />
+            </div>
+            <!-- Orange 3D Shape Mock (Bottom Center) - FIXED: Upped to z-40 -->
+            <div
+                class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-10 h-10 sm:w-28 sm:h-28 animate-bounce duration-[3000ms] z-40"
+                >
+                <img
+                    src="{% static 'icons/home/shape3.webp' %}"
+                    alt=""
+                    class="w-full h-full object-contain filter drop-shadow-lg"
+                    />
+            </div>
+            <!-- Big Bold Futuristic Title -->
+            <h2
+                class="zoom-in text-4xl sm:text-6xl md:text-[140px] lg:text-[165px] font-black text-white uppercase tracking-tighter leading-[0.82] select-none relative z-10"
+                >
+                Discover<br />the Future
+            </h2>
+        </div>
+        <!-- SUBTITLE TEXT -->
+        <p
+            class="fade-up max-w-2xl text-xs sm:text-sm md:text-base text-white/90 font-medium leading-relaxed tracking-wide mt-6 mx-auto"
+            >
+            Discover the trends, transformations, and opportunities that are reshaping
+            industries and inspiring the next generation.
+        </p>
+        <!-- VIDEO SHOWCASE CONTAINER -->
+        <div
+            class="w-full aspect-video rounded-2xl sm:rounded-3xl border border-white/10 shadow-2xl overflow-hidden bg-black relative mt-4 group mx-auto z-20"
+            >
+            <!-- Video Element with Native Attributes -->
+            <video
+                id="showcase-video"
+                autoplay
+                loop
+                muted
+                playsinline
+                controls
+                class="w-full h-full object-cover relative z-20 focus:outline-none"
+                >
+                <source src="{% static 'videos/descover.mp4' %}" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</section>
+<!-- Main Review Section Canvas Wrapper with dynamic dark gradient layout matching image -->
+<section class="w-full py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto w-full flex flex-col space-y-16 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            <div class="lg:col-span-7">
+                <span
+                    class="fade-up text-xs sm:text-sm font-bold uppercase tracking-widest bg-clip-text text-[var(--primary)] flex items-center gap-2"
+                    >
+                ABOUT FUTURE TECHNOLOGIES SUMMIT
+                </span>
+                <h2
+                    class="zoom-in text-[var(--black)] text-4xl sm:text-6xl lg:text-[70px] font-black uppercase tracking-tighter"
+                    >
+                    THE VISION<br />
+                    BEHIND FUTURE <br />TECHNOLOGIES <br />
+                    SUMMIT
+                </h2>
+            </div>
+            <!-- Right Box: Dual Sub-content with Interactive Pill Buttons -->
+            <div class="lg:col-span-5 space-y-8 text-left">
+                <div class="lg:col-span-6 text-left space-y-6">
+                    <!-- Core Value Statement with subtle side border element -->
+                    <p
+                        class="fade-up text-sm sm:text-base lg:text-lg text-[var(--text-dark)] font-normal leading-relaxed tracking-wide border-l-2 border-[var(--primary)] pl-4 lg:pl-6"
+                        >
+                        The **Future Technologies Summit (FTS)** stands as a premier global
+                        platform engineered for exploring deep ideas, disruptive
+                        innovations, and indigenous advancements that shape our world.
+                    </p>
+                    <!-- Secondary supporting breakdown layer -->
+                    <p
+                        class="fade-up text-xs sm:text-sm text-[var(--text-dark)] leading-relaxed font-normal pl-4 lg:pl-6"
+                        >
+                        By bringing together visionaries, deep-tech architects, and strategy
+                        leaders across defence, policy, and entrepreneurship, we accelerate
+                        dialogue that bridges the gap between today's prototypes and
+                        tomorrow's scalable ecosystems. From next-gen artificial
+                        intelligence to strategic aerospace frameworks, FTS fuels the global
+                        tech frontier.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- BOTTOM SECTION: Image Showcase Horizontal Mesh Grid (Mobile Swipeable, Desktop Grid) -->
+        <div
+            class="stagger-wrapper w-full overflow-x-auto scroll-hide flex lg:grid lg:grid-cols-4 gap-6 pb-4 cursor-grab active:cursor-grabbing"
+            >
+            <!-- Card Image Mock 1 -->
+            <div
+                class="stagger-item min-w-[280px] sm:min-w-[320px] lg:min-w-0 aspect-[4/3] rounded-2xl border border-white/10 overflow-hidden bg-black/40 shadow-xl relative transition-all duration-300 hover:scale-[1.02]"
+                >
+                <img
+                    src="{% static 'images/home/fts-review-1.jpg' %}"
+                    alt="Summit Review View 1"
+                    class="w-full h-full object-cover"
+                    />
+            </div>
+            <!-- Card Image Mock 2 -->
+            <div
+                class="stagger-item min-w-[280px] sm:min-w-[320px] lg:min-w-0 aspect-[4/3] rounded-2xl border border-white/10 overflow-hidden bg-black/40 shadow-xl relative transition-all duration-300 hover:scale-[1.02]"
+                >
+                <img
+                    src="{% static 'images/home/fts-review-2.jpg' %}"
+                    alt="Summit Review View 2"
+                    class="w-full h-full object-cover"
+                    />
+            </div>
+            <!-- Card Image Mock 3 -->
+            <div
+                class="stagger-item min-w-[280px] sm:min-w-[320px] lg:min-w-0 aspect-[4/3] rounded-2xl border border-white/10 overflow-hidden bg-black/40 shadow-xl relative transition-all duration-300 hover:scale-[1.02]"
+                >
+                <img
+                    src="{% static 'images/home/fts-review-3.jpg' %}"
+                    alt="Summit Review View 3"
+                    class="w-full h-full object-cover"
+                    />
+            </div>
+            <!-- Card Image Mock 4 -->
+            <div
+                class="stagger-item min-w-[280px] sm:min-w-[320px] lg:min-w-0 aspect-[4/3] rounded-2xl border border-white/10 overflow-hidden bg-black/40 shadow-xl relative transition-all duration-300 hover:scale-[1.02]"
+                >
+                <img
+                    src="{% static 'images/home/fts-review-4.jpg' %}"
+                    alt="Summit Review View 4"
+                    class="w-full h-full object-cover"
+                    />
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Main Events Hub Section -->
+<section
+    class="w-full  text-white py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+    style="background-image: var(--primary-gradient)"
+    >
+    <!-- Content Constraints -->
+    <div class="max-w-7xl mx-auto w-full space-y-16 relative z-10">
+        <!-- SECTION HEADER -->
+        <div class="border-b border-[var(--border)] pb-8">
+            <h2 class="zoom-in text-3xl sm:text-[55px] font-black uppercase tracking-tight">
+                Events Hub
+            </h2>
+        </div>
+        <!-- MAIN GRID -->
+        <div class="stagger-wrapper grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <!-- ================= LEFT COLUMN: UPCOMING EVENTS (5 Columns) ================= -->
+            <div class=" lg:col-span-5 space-y-6">
+                <h3
+                    class="fade-up text-[25px] font-bold tracking-wide uppercase flex items-center gap-2 text-white"
+                    >
+                    Upcoming Events
+                </h3>
+                <!-- Upcoming Card -->
+                <div
+                    class="stagger-item p-6 rounded-3xl border border-[var(--border)] transition-all group relative overflow-hidden space-y-4"
+                    >
+                    <div
+                        class="absolute top-0 left-0 h-full w-[2px] bg-gradient-to-b from-blue-500 to-transparent opacity-100 transition-opacity"
+                        ></div>
+                    <div class="space-y-2">
+                        <span class="text-[15px] font-bold text-[var(--primary)] uppercase"
+                            >Next India Edition</span
+                            >
+                        <h4 class="text-xl font-extrabold text-white">
+                            FUTURE TECHNOLOGIES SUMMIT 2026
+                        </h4>
+                    </div>
+                    <!-- Font Awesome Integration for Meta Badges -->
+                    <div class="flex flex-wrap gap-3 text-[11px]">
+                        <span
+                            class="bg-white/5 px-3 py-1.5 rounded-full border border-white/5 flex items-center gap-2"
+                            >
+                        <i class="fa-regular fa-calendar text-[var(--primary)]"></i> 10 &
+                        11 NOV 2026
+                        </span>
+                        <span
+                            class="bg-white/5 px-3 py-1.5 rounded-full border border-white/5 flex items-center gap-2"
+                            >
+                        <i class="fa-solid fa-location-dot text-[var(--primary)]"></i>
+                        India
+                        </span>
+                    </div>
+                    <p
+                        class="text-[12px] text-[var(--text-light)] leading-relaxed font-normal pt-2 border-t border-[var(--border)]"
+                        >
+                        The Future Technologies Summit – India Edition 2026 will convene the
+                        nation’s brightest minds in technology, defence, policy, and
+                        entrepreneurship for a high-impact exchange of ideas. With a strong
+                        focus on indigenous innovation and strategic growth, this edition
+                        will delve into advancements in AI, cybersecurity, aerospace, green
+                        tech, and more.
+                        <br />
+                        Through thought-provoking panels, keynote addresses, and startup
+                        spotlights, the summit will showcase India’s pivotal role as a hub
+                        for emerging technologies and global progress. Leaders, innovators,
+                        and visionaries from across the country will come together to shape
+                        the future of India’s tech landscape and its influence worldwide.
+                    </p>
+                </div>
+            </div>
+            <!-- ================= RIGHT COLUMN: PAST REVIEWS (7 Columns) ================= -->
+            <div class=" lg:col-span-7 space-y-6">
+                <h3
+                    class=" fade-up text-[25px] font-bold tracking-wide uppercase flex items-center gap-2 text-white"
+                    >
+                    Past Previews & Reviews
+                </h3>
+                <!-- Grid for Reviews -->
+                <div class="stagger-wrapper grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Review Item 1 -->
+                    <div
+                        class="stagger-item  group flex flex-col space-y-4 bg-white/[0.01] border border-[var(--border)] p-4 rounded-3xl hover:bg-white/[0.02] transition-all"
+                        >
+                        <div
+                            class="w-full aspect-[16/10] rounded-2xl overflow-hidden border border-[var(--border)]"
+                            >
+                            <img
+                                src="{% static 'images/home/fts-review-3.jpg' %}"
+                                alt="Review of Future Technologies Summit 2025"
+                                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                                />
+                        </div>
+                        <div class="space-y-3 px-1 text-left">
+                            <span
+                                class="text-[11px] text-[var(--text-light)] uppercase block"
+                                >
+                            <i class="fa-regular fa-clock me-1"></i> 26 MAR 2025 | New Delhi
+                            </span>
+                            <h4 class="font-bold text-[var(--white)]">
+                                Review of Future Technologies Summit 2025
+                            </h4>
+                            <a href="{% static 'media/pdfs/fts_26_march2025.pdf' %}" target="_blank" class="btn btn-primary group">
+                            <span>Review Report</span>
+                            <span
+                                class="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                                >↗</span
+                                >
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Review Item 2 -->
+                    <div
+                        class="stagger-item group flex flex-col space-y-4 bg-white/[0.01] border border-[var(--border)] p-4 rounded-3xl hover:bg-white/[0.02] transition-all"
+                        >
+                        <div
+                            class="w-full aspect-[16/10] rounded-2xl overflow-hidden border border-[var(--border)]"
+                            >
+                            <img
+                                src="{% static 'images/home/fts-review-8.jpg' %}"
+                                alt="Review of Future Technologies Summit 2025"
+                                class="w-full h-full object-cover transform group-hover:scale-102 transition-transform duration-500"
+                                />
+                        </div>
+                        <div class="space-y-3 px-1 text-left">
+                            <span
+                                class="text-[11px] text-[var(--text-light)] uppercase block"
+                                >
+                            <i class="fa-regular fa-clock me-1"></i> 23 SEP 2025 | Space
+                            Conference
+                            </span>
+                            <h4 class="font-bold text-[var(--white)]">
+                                Review of Future Technologies Summit 2025
+                            </h4>
+                            <a href="{% static 'media/pdfs/fts_23_sep_2025.pdf' %}" target="_blank" class="btn btn-primary group">
+                            <span>Review Report</span>
+                            <span
+                                class="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                                >↗</span
+                                >
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Main Pinning Tracks Section: Locked to Viewport Screen (h-screen) -->
+<section
+    id="tracks-fullscreen-section"
+    class="w-full h-screen text-white overflow-hidden relative flex flex-col justify-center"
+    >
+    <div class="w-full space-y-12 relative z-10">
+        <div class="w-full text-center space-y-3 select-none">
+            <span class="fade-up heading-tag">OUR BENEFITS</span>
+            <h2 class="fade-up primary-title">Why You Should Attend</h2>
+        </div>
+        <div class="w-full overflow-hidden pb-6">
+            <div
+                id="tracks-horizontal-rail"
+                class="flex gap-10 will-change-transform w-max pr-[40vw] pl-8 sm:pl-16 lg:pl-24"
+                >
+                <!-- ================= TRACK CARD 01 (INCREASED SIZE) ================= -->
+                <div
+                    class="bg-white text-black w-[340px] sm:w-[650px] lg:w-[720px] h-[480px] sm:h-[400px] lg:h-[440px] rounded-[2.5rem] p-8 sm:p-10 shrink-0 flex flex-col sm:flex-row gap-8 items-center shadow-2xl relative group overflow-hidden"
+                    >
+                    <!-- Image Mask Number Container (Larger Scale) -->
+                    <div
+                        class="relative w-full sm:w-[45%] h-56 sm:h-full shrink-0 flex items-center justify-center overflow-hidden rounded-3xl bg-slate-100"
+                        >
+                        <span
+                            class="absolute -bottom-16 left-0 text-[240px] sm:text-[300px] font-black leading-none text-slate-200/80 select-none tracking-tighter"
+                            >1</span
+                            >
+                        <img
+                            src="{% static 'images/home/learn.png' %}"
+                            alt="Future of Education"
+                            class="relative w-full h-full z-10 object-cover rounded-2xl shadow-md transition-transform duration-700 group-hover:scale-105"
+                            />
+                    </div>
+                    <!-- Content Details Area (Adjusted Typography sizing for big scale) -->
+                    <div
+                        class="w-full sm:w-[55%] text-left flex flex-col justify-center space-y-4"
+                        >
+                        <span
+                            class="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2"
+                            >
+                        <i class="fa-solid fa-graduation-cap text-blue-600 text-sm"></i>
+                        EDUCATION
+                        </span>
+                        <h3
+                            class="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-slate-900 leading-none"
+                            >
+                            LEARN
+                        </h3>
+                        <p
+                            class="text-[15px]  text-[var(--text-dark)] leading-relaxed font-normal"
+                            >
+                            Gain insight and training through the hundreds of presentations
+                            and demonstrations
+                        </p>
+                    </div>
+                </div>
+                <!-- ================= TRACK CARD 02 (INCREASED SIZE) ================= -->
+                <div
+                    class="bg-white text-black w-[340px] sm:w-[650px] lg:w-[720px] h-[480px] sm:h-[400px] lg:h-[440px] rounded-[2.5rem] p-8 sm:p-10 shrink-0 flex flex-col sm:flex-row gap-8 items-center shadow-2xl relative group overflow-hidden"
+                    >
+                    <!-- Image Mask Number Container -->
+                    <div
+                        class="relative w-full sm:w-[45%] h-56 sm:h-full shrink-0 flex items-center justify-center overflow-hidden rounded-3xl bg-slate-100"
+                        >
+                        <span
+                            class="absolute -bottom-16 left-0 text-[240px] sm:text-[300px] font-black leading-none text-slate-200/80 select-none tracking-tighter"
+                            >2</span
+                            >
+                        <img
+                            src="{% static 'images/home/dicover.png' %}"
+                            alt="Deep Tech & Robotics"
+                            class="relative z-10 w-full h-full object-cover rounded-2xl shadow-md transition-transform duration-700 group-hover:scale-105"
+                            />
+                    </div>
+                    <!-- Content Details Area -->
+                    <div
+                        class="w-full sm:w-[55%] text-left flex flex-col justify-center space-y-4"
+                        >
+                        <span
+                            class="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2"
+                            >
+                        <i class="fa-solid fa-microchip text-purple-600 text-sm"></i>
+                        TECHNOLOGY
+                        </span>
+                        <h3
+                            class="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-slate-900 leading-none"
+                            >
+                            DISCOVER
+                        </h3>
+                        <p
+                            class="text-[15px]  text-[var(--text-dark)] leading-relaxed font-normal"
+                            >
+                            See how technologies are creating amazing breakthroughs in
+                            important fields
+                        </p>
+                    </div>
+                </div>
+                <!-- ================= TRACK CARD 02 (INCREASED SIZE) ================= -->
+                <div
+                    class="bg-white text-black w-[340px] sm:w-[650px] lg:w-[720px] h-[480px] sm:h-[400px] lg:h-[440px] rounded-[2.5rem] p-8 sm:p-10 shrink-0 flex flex-col sm:flex-row gap-8 items-center shadow-2xl relative group overflow-hidden"
+                    >
+                    <!-- Image Mask Number Container -->
+                    <div
+                        class="relative w-full sm:w-[45%] h-56 sm:h-full shrink-0 flex items-center justify-center overflow-hidden rounded-3xl bg-slate-100"
+                        >
+                        <span
+                            class="absolute -bottom-16 left-0 text-[240px] sm:text-[300px] font-black leading-none text-slate-200/80 select-none tracking-tighter"
+                            >3</span
+                            >
+                        <img
+                            src="{% static 'images/home/network.png' %}"
+                            alt="Deep Tech & Robotics"
+                            class="relative z-10 w-full h-full object-cover rounded-2xl shadow-md transition-transform duration-700 group-hover:scale-105"
+                            />
+                    </div>
+                    <!-- Content Details Area -->
+                    <div
+                        class="w-full sm:w-[55%] text-left flex flex-col justify-center space-y-4"
+                        >
+                        <span
+                            class="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2"
+                            >
+                        <i class="fa-solid fa-microchip text-purple-600 text-sm"></i>
+                        TECHNOLOGY
+                        </span>
+                        <h3
+                            class="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-slate-900 leading-none"
+                            >
+                            NETWORK
+                        </h3>
+                        <p
+                            class="text-[15px]  text-[var(--text-dark)] leading-relaxed font-normal"
+                            >
+                            Network with attendees from around the world and exchange
+                            knowledge in an informal setting
+                        </p>
+                    </div>
+                </div>
+                <!-- ================= TRACK CARD 02 (INCREASED SIZE) ================= -->
+                <div
+                    class="bg-white text-black w-[340px] sm:w-[650px] lg:w-[720px] h-[480px] sm:h-[400px] lg:h-[440px] rounded-[2.5rem] p-8 sm:p-10 shrink-0 flex flex-col sm:flex-row gap-8 items-center shadow-2xl relative group overflow-hidden"
+                    >
+                    <!-- Image Mask Number Container -->
+                    <div
+                        class="relative w-full sm:w-[45%] h-56 sm:h-full shrink-0 flex items-center justify-center overflow-hidden rounded-3xl bg-slate-100"
+                        >
+                        <span
+                            class="absolute -bottom-16 left-0 text-[240px] sm:text-[300px] font-black leading-none text-slate-200/80 select-none tracking-tighter"
+                            >4</span
+                            >
+                        <img
+                            src="{% static 'images/home/connect.png' %}"
+                            alt="Deep Tech & Robotics"
+                            class="relative z-10 w-full h-full object-cover rounded-2xl shadow-md transition-transform duration-700 group-hover:scale-105"
+                            />
+                    </div>
+                    <!-- Content Details Area -->
+                    <div
+                        class="w-full sm:w-[55%] text-left flex flex-col justify-center space-y-4"
+                        >
+                        <span
+                            class="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2"
+                            >
+                        <i class="fa-solid fa-microchip text-purple-600 text-sm"></i>
+                        TECHNOLOGY
+                        </span>
+                        <h3
+                            class="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-slate-900 leading-none"
+                            >
+                            CONNECT
+                        </h3>
+                        <p
+                            class="text-[15px]  text-[var(--text-dark)] leading-relaxed font-normal"
+                            >
+                            Connect with technology experts from international universities
+                            and leading technology companies
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="w-full min-h-screen text-white relative">
+    <div class="w-full grid grid-cols-1 lg:grid-cols-12 items-start relative">
+        <div
+            class="col-span-1 lg:col-span-6 w-full h-[50vh] lg:h-screen lg:sticky lg:top-0 overflow-hidden shadow-2xl"
+            >
+            <img
+                src="{% static 'images/home/fts-review-1.jpg' %}"
+                alt="Future Tech Summit Overview Panel"
+                class="slide-left w-full h-full object-cover object-center"
+                />
+        </div>
+        <div
+            class="col-span-1 lg:col-span-6 min-h-screen py-16 px-6 sm:px-12 lg:px-16 flex flex-col justify-center space-y-12 text-left bg-gradient-to-b from-[#20065e] via-[#080214] to-[#2d0031]"
+            style="background-image: var(--primary-gradient)"
+            >
+            <div class="space-y-4">
+                <h2
+                    class="fade-up text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight leading-[1.05] text-white bg-clip-text"
+                    style="background-image: var(--gradient_primary)"
+                    >
+                    FUTURE TECH SUMMIT<br />OVERVIEW
+                </h2>
+                <p
+                    class="fade-up first-letter:text-[15px] opacity-70 leading-relaxed tracking-wide max-w-xl"
+                    >
+                    The future tech summit 2025 is a premier gathering of industry
+                    leaders, innovators, and visionaries dedicated to shaping the
+                    technological landscape of tomorrow. as one of the top technology
+                    events in india, this exclusive event brings together experts from ai,
+                    robotics, aerospace, cybersecurity, green energy, and more, fostering
+                    discussions that will drive the next wave of future technology in
+                    india. join us at the future technologies summit 2025 to explore
+                    groundbreaking advancements, exchange ideas, and build strategic
+                    collaborations that will redefine industries, fuel the growth of
+                    startup india, and transform the future of futuretech.
+                </p>
+            </div>
+            <hr class="border-white/10 my-6" />
+            <div class="space-y-12">
+                <!-- Feature Content Block 1 -->
+                <div class="space-y-3 group">
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="shrink-0 transform group-hover:rotate-45 transition-transform duration-300 ease-out mt-0.5"
+                            >
+                            <img
+                                src="{% static 'icons/home/exploring.png' %}"
+                                alt="Icon"
+                                class="w-full h-full "
+                                />
+                        </div>
+                        <div>
+                            <h4
+                                class="fade-up text-[25px] font-bold tracking-wide text-white group-hover:text-pink-400 transition-colors duration-200"
+                                >
+                                Exploring the Future of Innovation
+                            </h4>
+                            <p
+                                class="fade-up text-[15px]  opacity-60 leading-relaxed font-normal tracking-wide mt-2 max-w-lg"
+                                >
+                                Stay up to date with the latest advancements shaping the
+                                technology landscape. the future technologies summit 2025 will
+                                delve into emerging trends that drive innovation, efficiency,
+                                and transformation across industries. from artificial
+                                intelligence to next-gen aerospace solutions, the event will
+                                highlight groundbreaking developments that redefine the future.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Feature Content Block 2 -->
+                <div class="space-y-3 group">
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="shrink-0 transform group-hover:rotate-45 transition-transform duration-300 ease-out mt-0.5"
+                            >
+                            <img
+                                src="{% static 'icons/home/insightful.png' %}"
+                                alt="Icon"
+                                class="w-full h-full"
+                                />
+                        </div>
+                        <div>
+                            <h4
+                                class="fade-up text-[25px] font-bold tracking-wide text-white group-hover:text-pink-400 transition-colors duration-200"
+                                >
+                                Insightful Discussions
+                            </h4>
+                            <p
+                                class="fade-up text-[15px]  opacity-60 leading-relaxed font-normal tracking-wide mt-2 max-w-lg"
+                                >
+                                The summit will feature an outstanding lineup of expert
+                                speakers, case studies, panel discussions, and unique
+                                presentations, providing unparalleled access to cutting-edge
+                                insights. industry leaders will share best practices,
+                                experiences, and emerging trends, fostering knowledge exchange,
+                                future outlooks, and actionable takeaways to drive strategic
+                                growth.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Feature Content Block 3 -->
+                <div class="space-y-3 group">
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="shrink-0 transform group-hover:rotate-45 transition-transform duration-300 ease-out mt-0.5"
+                            >
+                            <img
+                                src="{% static 'icons/home/empowering.png' %}"
+                                alt="Icon"
+                                class="w-full h-full object-contain"
+                                />
+                        </div>
+                        <div>
+                            <h4
+                                class="fade-up text-[25px] font-bold tracking-wide text-white group-hover:text-pink-400 transition-colors duration-200"
+                                >
+                                Empowering Startups
+                            </h4>
+                            <p
+                                class="fade-up text-[15px]  opacity-60 leading-relaxed font-normal tracking-wide mt-2 max-w-lg"
+                                >
+                                The future technologies summit 2025 will bring together industry
+                                giants, investors, startups, smes, and entrepreneurs to
+                                accelerate digital transformation. with a dedicated focus on
+                                empowering startups, the event will provide a platform for
+                                emerging businesses to showcase their innovations, connect with
+                                potential investors, and explore strategic partnerships.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--========================================== -->
+<section class="w-full bg-[#f3f6fc] py-16 overflow-hidden">
+    <div class="space-y-10 w-full">
+        <div class="w-full text-center space-y-3 select-none">
+            <span class="fade-up heading-tag">RECAP</span>
+            <h2 class="fade-up primary-title">LAST YEAR AT THE SUMMIT OF FUTURE</h2>
+        </div>
+        <div
+            id="js-gallery-mask"
+            class="w-full overflow-hidden relative whitespace-nowrap cursor-grab active:cursor-grabbing py-2"
+            >
+            <div
+                id="js-smooth-rail"
+                class="flex gap-6 w-max [will-change:transform] select-none"
+                >
+                <!-- IMAGE CARD 01 -->
+                <div
+                    class="w-[300px] sm:w-[500px] lg:w-[580px] aspect-[16/10] rounded-[2rem] shrink-0 overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] bg-white group border border-slate-100"
+                    >
+                    <img
+                        src="{% static 'images/home/fts-review-1.jpg' %}"
+                        alt=" "
+                        class="w-full h-full object-cover pointer-events-none"
+                        />
+                </div>
+                <!-- IMAGE CARD 02 -->
+                <div
+                    class="w-[300px] sm:w-[500px] lg:w-[580px] aspect-[16/10] rounded-[2rem] shrink-0 overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] bg-white group border border-slate-100"
+                    >
+                    <img
+                        src="{% static 'images/home/fts-review-2.jpg' %}"
+                        alt=" "
+                        class="w-full h-full object-cover pointer-events-none"
+                        />
+                </div>
+                <!-- IMAGE CARD 03 -->
+                <div
+                    class="w-[300px] sm:w-[500px] lg:w-[580px] aspect-[16/10] rounded-[2rem] shrink-0 overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] bg-white group border border-slate-100"
+                    >
+                    <img
+                        src="{% static 'images/home/fts-review-3.jpg' %}"
+                        alt=" "
+                        class="w-full h-full object-cover pointer-events-none"
+                        />
+                </div>
+                <!-- IMAGE CARD 04 -->
+                <div
+                    class="w-[300px] sm:w-[500px] lg:w-[580px] aspect-[16/10] rounded-[2rem] shrink-0 overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] bg-white group border border-slate-100"
+                    >
+                    <img
+                        src="{% static 'images/home/fts-review-4.jpg' %}"
+                        alt=" "
+                        class="w-full h-full object-cover pointer-events-none"
+                        />
+                </div>
+                <!-- IMAGE CARD 05 -->
+                <div
+                    class="w-[300px] sm:w-[500px] lg:w-[580px] aspect-[16/10] rounded-[2rem] shrink-0 overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] bg-white group border border-slate-100"
+                    >
+                    <img
+                        src="{% static 'images/home/fts-review-5.jpg' %}"
+                        alt=" "
+                        class="w-full h-full object-cover pointer-events-none"
+                        />
+                </div>
+                <div
+                    class="w-[300px] sm:w-[500px] lg:w-[580px] aspect-[16/10] rounded-[2rem] shrink-0 overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] bg-white group border border-slate-100"
+                    >
+                    <img
+                        src="{% static 'images/home/fts-review-6.jpg' %}"
+                        alt=" "
+                        class="w-full h-full object-cover pointer-events-none"
+                        />
+                </div>
+                <div
+                    class="w-[300px] sm:w-[500px] lg:w-[580px] aspect-[16/10] rounded-[2rem] shrink-0 overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] bg-white group border border-slate-100"
+                    >
+                    <img
+                        src="{% static 'images/home/fts-review-7.jpg' %}"
+                        alt=" "
+                        class="w-full h-full object-cover pointer-events-none"
+                        />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Main Section Wrapper -->
+
+<section
+    class="w-full bg-[#f8f9fa] text-[#0f172a] py-20 px-4 sm:px-6 lg:px-8 relative"
+    >
+    <div class="max-w-7xl mx-auto w-full space-y-16 relative z-10">
+        <!-- HEADER SECTION -->
+        <div class="w-full text-center space-y-3 select-none">
+            <span class="fade-up heading-tag"> Why Attend</span>
+            <h2 class="fade-up primary-title">Unlock New Opportunities</h2>
+        </div>
+        <!-- CARDS GRID -->
+        <div class="stagger-wrapper grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- CARD 1 -->
+            <div
+                class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group"
+                >
+                <img src="{% static 'icons/home/stay-ahead.png' %}" alt="Stay Ahead" class="w-16 h-16 rounded-2xl bg-pink-200 p-2 flex items-center justify-center shadow-[0_8px_20px_-6px_rgba(219,39,119,0.4)] mb-6"
+                    />
+                <div class="space-y-2 flex-grow flex flex-col justify-between">
+                    <h3 class="text-[25px] font-bold tracking-tight text-[#060c3c]">
+                        Stay Ahead
+                    </h3>
+                    <p class="text-[15px] text-[var(--text-dark)] leading-relaxed font-normal">
+                        Gain insights into emerging technologies like AI, robotics,
+                        cybersecurity, and green energy.
+                    </p>
+                </div>
+            </div>
+            <!-- CARD 2 -->
+            <div
+                class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group"
+                >
+                <img src="{% static 'icons/home/connect-globally.png' %}" alt="Stay Ahead" class="w-16 h-16 rounded-2xl bg-pink-200 p-2 flex items-center justify-center shadow-[0_8px_20px_-6px_rgba(219,39,119,0.4)] mb-6"
+                    />
+              
+                <div class="space-y-2 flex-grow flex flex-col justify-between">
+                    <h3 class="text-[25px] font-bold tracking-tight text-[#060c3c]">
+                        Connect Globally
+                    </h3>
+                    <p class="text-[15px] text-[var(--text-dark)] leading-relaxed font-normal">
+                        Network with CEOs, investors, policymakers, and tech pioneers to
+                        unlock new opportunities.
+                    </p>
+                </div>
+            </div>
+            <!-- CARD 3 -->
+            <div
+                class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group"
+                >
+                <img src="{% static 'icons/home/learn-more.png' %}" alt="Stay Ahead" class="w-16 h-16 rounded-2xl bg-pink-200 p-2 flex items-center justify-center shadow-[0_8px_20px_-6px_rgba(219,39,119,0.4)] mb-6"
+                    />
+                <div class="space-y-2 flex-grow flex flex-col justify-between">
+                    <h3 class="text-[25px] font-bold tracking-tight text-[#060c3c]">
+                        Learn More
+                    </h3>
+                    <p class="text-[15px] text-[var(--text-dark)] leading-relaxed font-normal">
+                        Hear from industry leaders through keynotes, panel discussions, and real-world case studies.
+                    </p>
+                </div>
+            </div>
+            <!-- CARD 4 -->
+            <div
+                class="stagger-item bg-white rounded-[2rem] p-7 flex flex-col items-center text-center shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 group"
+                >
+                <img src="{% static 'icons/home/empower-startups.png' %}" alt="Stay Ahead" class="w-16 h-16 rounded-2xl bg-pink-200 p-2 flex items-center justify-center shadow-[0_8px_20px_-6px_rgba(219,39,119,0.4)] mb-6"
+                    />
+                <div class="space-y-2 flex-grow flex flex-col justify-between">
+                    <h3 class="text-[25px] font-bold tracking-tight text-[#060c3c]">
+                        Empower Startups
+                    </h3>
+                    <p class="text-[15px] text-[var(--text-dark)] leading-relaxed font-normal">
+                        Startups get exposure, funding, and mentorship through pitch
+                        sessions and investor meetups.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Hiding scrollbar across browsers -->
+<style>
+    .scroll-hide::-webkit-scrollbar {
+    display: none;
+    }
+    .scroll-hide {
+    -ms-overflow-style: none;
+    scroll-bar-width: none;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Confirmation</title>
+</head>
+<body style="font-family: Arial, sans-serif; background:#f4f6f9; padding:30px;">
+
+    <div style="max-width:600px; margin:auto; background:#ffffff; padding:25px; border-radius:8px;">
+
+        <h2 style="color:#111827;">Payment Confirmation</h2>
+
+        <p>Hi {{ payment.full_name }},</p>
+
+        <p>
+            Thank you for booking your ticket for 
+            <strong>{{ payment.event.title }}</strong>.
+        </p>
+
+        <hr>
+
+        <h3>Booking Details:</h3>
+
+        <p><strong>Event:</strong> {{ payment.event.title }}</p>
+        <p><strong>Quantity:</strong> {{ payment.quantity }}</p>
+        <p><strong>Total Amount:</strong> ₹{{ payment.amount }}</p>
+
+        <hr>
+
+        <h3>Transaction Details:</h3>
+
+        <p><strong>Payment ID:</strong> {{ payment.razorpay_payment_id }}</p>
+        <p><strong>Order ID:</strong> {{ payment.razorpay_order_id }}</p>
+
+        <hr>
+
+        <p>
+            Please keep this email as proof of your successful transaction.
+        </p>
+
+        <p>
+            We look forward to seeing you at the event!
+        </p>
+
+        <br>
+
+        <p style="font-size:13px; color:#666;">
+            — Future Technologies Summit Team
+        </p>
+
+    </div>
+
+</body>
+</html>

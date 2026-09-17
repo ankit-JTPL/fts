@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Media Gallery | Future Tech Summit{% endblock %}
+{% block content %}
+
+<!-- Media Gallery Hero -->
+<section class="w-full py-24 px-4 sm:px-6 lg:px-8 text-center text-white relative overflow-hidden"
+style="background-image: var(--primary-gradient)">
+    <div class="max-w-4xl mx-auto relative z-10 space-y-4">
+        <span class="fade-up heading-tag">Moments Worth Reliving</span>
+        <h2 class="zoom-in primary-title text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tighter text-white">
+             Media Gallery
+        </h2>
+        <p class="fade-up text-sm sm:text-base text-[var(--text-light)] max-w-xl mx-auto leading-relaxed">
+           Photos and videos from every edition of the Future Technologies Summit,
+            organized year by year.
+        </p>
+    </div>
+</section>
+
+<!-- ==================== STICKY CONTROLS: TYPE FILTER ==================== -->
+<section class="sticky top-0 z-40 w-full backdrop-blur ">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 border-b border-[var(--border)]">
+        <div class="flex items-center justify-center gap-2" id="type-filters">
+            <button data-filter="all"
+                class="filter-btn btn-secondary px-5 py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wide border border-[var(--border)] transition-colors">
+                All
+            </button>
+            <button data-filter="photo"
+                class="filter-btn btn-primary px-5 py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wide border border-[var(--border)] transition-colors">
+                Photos
+            </button>
+            <button data-filter="video"
+                class="filter-btn btn-primary px-5 py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wide border border-[var(--border)] transition-colors">
+                Videos
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- No results message -->
+<p id="no-results" class="hidden text-center text-[var(--text-dark)] py-16 text-sm font-medium">
+    No media found for this filter.
+</p>
+
+<!-- ============================= YEAR: 2025 (light) ============================= -->
+<section id="year-2025" class="year-section w-full py-20 px-4 sm:px-6 lg:px-8" data-year="2025">
+    <div class="max-w-7xl mx-auto w-full space-y-10">
+        <div class="border-b border-[var(--border)] pb-6">
+            <h2 class="fade-up text-3xl sm:text-[45px] font-black uppercase tracking-tight text-[var(--black)]">2025</h2>
+            <p class="fade-up text-sm text-[var(--text-dark)] mt-1">Future Technologies Summit 2025</p>
+        </div>
+
+        <div class=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Photo card -->
+            <div class="media-card group relative rounded-2xl overflow-hidden border border-slate-200 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
+                data-type="photo">
+                <img src="{% static 'media/images/fts-media-1.jpg' %}" alt="Review of Future Technologies Summit 2025" loading="lazy"
+                     class="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-110" />
+                <span class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/15 backdrop-blur flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="fa-solid fa-image"></i>
+                </span>
+            </div>
+
+            <!-- Video card: thumbnail + youtube link -->
+
+            <a href="https://www.youtube.com/watch?v=4QMu-KUe2iI" target="_blank" rel="noopener"
+                class="media-card group relative block rounded-2xl overflow-hidden border border-slate-200 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
+                data-type="video">
+                <img src="{% static 'media/images/fts-media-2.jpg' %}" alt="Space Conference Recap" loading="lazy"
+                     class="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-110" />
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-white/90 flex items-center justify-center text-[var(--black)] text-lg transition-transform duration-300 group-hover:scale-110">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+                <span class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/15 backdrop-blur flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="fa-solid fa-video"></i>
+                </span>
+            </a>
+
+            <!-- Photo card -->
+            <div class="media-card group relative rounded-2xl overflow-hidden border border-slate-200 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
+                data-type="photo">
+                <img src="{% static 'media/images/fts-media-3.jpg' %}" alt="AI & Robotics Showcase Floor" loading="lazy"
+                     class="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-110" />
+                <span class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/15 backdrop-blur flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="fa-solid fa-image"></i>
+                </span>
+            </div>
+
+            <!-- Photo card -->
+            <div class="media-card group relative rounded-2xl overflow-hidden border border-slate-200 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
+                 data-type="photo">
+                <img src="{% static 'media/images/fts-media-4.jpg' %}" alt="Green Tech Pavilion" loading="lazy"
+                     class="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-110" />
+                <span class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/15 backdrop-blur flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="fa-solid fa-image"></i>
+                </span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================= YEAR: 2024 (dark) ============================= -->
+<section id="year-2024" class="year-section w-full py-20 px-4 sm:px-6 lg:px-8" >
+    <div class="max-w-7xl mx-auto w-full space-y-10">
+        <div class="border-b border-[var(--border)] pb-6">
+            <h2 class="fade-up text-3xl sm:text-[45px] font-black uppercase tracking-tight">2024</h2>
+            <p class="fade-up text-sm text-[var(--text-dark)] mt-1">Future Technologies Summit 2024</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Photo card -->
+            <div class="media-card group relative rounded-2xl overflow-hidden border border-[var(--border)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
+                data-type="photo">
+                <img src="{% static 'media/images/fts-media-5.jpg' %}" alt="Inaugural Address" loading="lazy"
+                     class="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-110" />
+                <span class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/15 backdrop-blur flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="fa-solid fa-image"></i>
+                </span>
+            </div>
+
+            <!-- Video card: thumbnail + youtube link -->
+            <a href="https://www.youtube.com/watch?v=J1lrGiGKQ5w&t=1s" target="_blank" rel="noopener"
+                class="media-card group relative block rounded-2xl overflow-hidden border border-[var(--border)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
+                data-type="video">
+                <img src="{% static 'media/images/fts-media-6.jpg' %}" alt="Cybersecurity Panel Highlights" loading="lazy"
+                     class="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-110" />
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-white/90 flex items-center justify-center text-[var(--black)] text-lg transition-transform duration-300 group-hover:scale-110">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+                <span class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/15 backdrop-blur flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="fa-solid fa-video"></i>
+                </span>
+            </a>
+
+            <!-- Photo card -->
+            <div class="media-card group relative rounded-2xl overflow-hidden border border-[var(--border)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
+                 data-type="photo" >
+                <img src="{% static 'media/images/fts-media-7.jpg' %}" alt="Aerospace Innovation Zone" loading="lazy"
+                     class="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-110" />
+                <span class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/15 backdrop-blur flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="fa-solid fa-image"></i>
+                </span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ============================= SCRIPT  ============================= -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    var cards = document.querySelectorAll('.media-card');
+    var yearSections = document.querySelectorAll('.year-section');
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    var noResults = document.getElementById('no-results');
+    var activeType = 'all';
+
+    // ---------- Filter buttons ----------
+    function setActiveButton(clickedBtn) {
+        for (var i = 0; i < filterBtns.length; i++) {
+            filterBtns[i].classList.remove('btn-secondary');
+            filterBtns[i].classList.add('btn-primary');
+        }
+        clickedBtn.classList.remove('btn-primary');
+        clickedBtn.classList.add('btn-secondary');
+    }
+
+    function applyFilter() {
+        var anyVisible = false;
+
+        for (var s = 0; s < yearSections.length; s++) {
+            var section = yearSections[s];
+            var sectionCards = section.querySelectorAll('.media-card');
+            var sectionHasVisible = false;
+
+            for (var i = 0; i < sectionCards.length; i++) {
+                var card = sectionCards[i];
+                var show = (activeType === 'all' || card.dataset.type === activeType);
+                card.style.display = show ? '' : 'none';
+                if (show) {
+                    sectionHasVisible = true;
+                    anyVisible = true;
+                }
+            }
+            section.style.display = sectionHasVisible ? '' : 'none';
+        }
+
+        noResults.classList.toggle('hidden', anyVisible);
+    }
+
+    for (var b = 0; b < filterBtns.length; b++) {
+        filterBtns[b].addEventListener('click', function () {
+            setActiveButton(this);
+            activeType = this.dataset.filter;
+            applyFilter();
+        });
+    }
+
+});
+</script>
+
+{% endblock %}

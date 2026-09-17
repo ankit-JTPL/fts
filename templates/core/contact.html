@@ -1,0 +1,231 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Contact Us | Future Tech Summit {% endblock %}
+{% block content %}
+
+<section class="w-full bg-gradient-to-b from-[#20065e] via-[#080214] to-[#2d0031] text-white relative overflow-hidden">
+
+    <!-- subtle circuit texture -->
+    <div class="absolute inset-0 opacity-[0.07] pointer-events-none"
+         style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 32px 32px;"></div>
+
+    <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-20 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-x-16 gap-y-14">
+
+        <!-- ============ LEFT: STICKY INFO + LIVE BADGE ============ -->
+        <div class="lg:col-span-5 lg:sticky lg:top-24 self-start space-y-10">
+
+            <div class="fade-up space-y-2">
+                <span class="justify-start heading-tag text-sky-400">Access Request</span>
+                <h2 class="text-5xl sm:text-6xl font-black uppercase tracking-tighter leading-[0.9]">
+                    <span class="text-[var(--primary)]">Join</span><br />the Event
+                </h2>
+                <p class="text-white/60 text-sm max-w-sm leading-relaxed pt-2">
+                    For sponsorship, speaking, or participation opportunities at the Future Technologies Summit.
+                </p>
+            </div>
+
+            <!-- Contact block -->
+            <div class="fade-up space-y-3 border-l-2 border-[var(--primary)] pl-5">
+                <h4 class="font-bold text-[var(--primary)] text-base">Safaa Mehboob</h4>
+                <a href="mailto:safaa@livingstoneinstitute.com" class="block text-sm text-white/70 hover:text-sky-400 transition-colors">
+                    safaa@livingstoneinstitute.com
+                </a>
+                <a href="https://wa.me/919205625360" target="_blank" rel="noopener"
+                   class="flex items-center gap-2 text-sm text-white/70 hover:text-sky-400 transition-colors w-fit">
+                    <i class="fa-brands fa-whatsapp text-green-500"></i> +91 92056 25360
+                </a>
+                <p class="text-white/40 text-xs pt-1">Mon – Sat, 9:00 am to 6:00 pm</p>
+            </div>
+
+            <!-- Countdown -->
+            <div class="fade-up flex items-center gap-4 bg-black/30 border border-[var(--border)] rounded-2xl px-5 py-4">
+                <div class="w-2 h-2 rounded-full bg-sky-400 animate-pulse shrink-0"></div>
+                <p class="font-mono text-sm text-sky-300 tracking-wide">
+                    <span class="text-white/40 uppercase text-[10px] tracking-widest block mb-0.5">Time to Day 1</span>
+                    <span id="countdown-text">—</span>
+                </p>
+            </div>
+
+            <!-- LIVE BADGE PREVIEW — signature element -->
+            <div class="fade-up">
+                <p class="text-[11px] uppercase tracking-widest text-white/40 font-bold mb-3">Your Delegate Badge</p>
+                <div class="relative rounded-2xl border border-[var(--primary)]/40 bg-gradient-to-br from-[#2d0031] to-black/60 p-6 shadow-[0_0_40px_-12px_rgba(219,39,119,0.5)] overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-[var(--primary)]/10 blur-2xl rounded-full"></div>
+                    <div class="flex items-center justify-between mb-6 relative z-10">
+                        <span class="text-[10px] font-black uppercase tracking-widest text-white/50">FTS · 2026</span>
+                        <i class="fa-solid fa-id-badge text-[var(--primary)]"></i>
+                    </div>
+                    <h3 id="badge-name" class="text-2xl font-black uppercase tracking-tight leading-none relative z-10">
+                        Your Name
+                    </h3>
+                    <p id="badge-role" class="text-sm text-white/50 mt-1 relative z-10">Position · Company</p>
+                    <div id="badge-tags" class="flex flex-wrap gap-2 mt-5 relative z-10 min-h-[26px]">
+                        <span class="text-[10px] text-white/30 italic">Select an interest below</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ============ RIGHT: FORM ============ -->
+        <div class="lg:col-span-7">
+            <form method="post" action="" id="joinForm" class="fade-up space-y-10">
+                {% csrf_token %}
+                <!-- Step 1: Interest chips -->
+                <div>
+                    <p class="text-[11px] uppercase tracking-widest text-white font-bold mb-4">01 · What brings you here?</p>
+                    <div class="flex flex-wrap gap-3">
+                        <label class="interest-chip">
+                            <input type="checkbox" name="interest" value="Sponsor" class="peer hidden">
+                            <span class="chip-label"><i class="fa-solid fa-handshake"></i> Sponsor</span>
+                        </label>
+                        <label class="interest-chip">
+                            <input type="checkbox" name="   " value="Visitor" class="peer hidden">
+                            <span class="chip-label"><i class="fa-solid fa-user"></i> Visitor</span>
+                        </label>
+                        <label class="interest-chip">
+                            <input type="checkbox" name="interest" value="Delegate" class="peer hidden">
+                            <span class="chip-label"><i class="fa-solid fa-id-card"></i> Delegate</span>
+                        </label>
+                        <label class="interest-chip">
+                            <input type="checkbox" name="interest" value="Speaker" class="peer hidden">
+                            <span class="chip-label"><i class="fa-solid fa-microphone"></i> Speaker</span>
+                        </label>
+                        <label class="interest-chip">
+                            <input type="checkbox" name="interest" value="Advertiser" class="peer hidden">
+                            <span class="chip-label"><i class="fa-solid fa-bullhorn"></i> Catalogue Ad</span>
+                        </label>
+                        <label class="interest-chip">
+                            <input type="checkbox" name="interest" value="Supporter" class="peer hidden">
+                            <span class="chip-label"><i class="fa-solid fa-heart"></i> Supporter</span>
+                        </label>
+                        <label class="interest-chip">
+                            <input type="checkbox" name="interest" value="Media Partner" class="peer hidden">
+                            <span class="chip-label"><i class="fa-solid fa-newspaper"></i> Media Partner</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 2: Details -->
+                <div class="space-y-5">
+                    <p class="text-[11px] uppercase tracking-widest text-white font-bold">02 · Your details</p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div class="sm:col-span-2">
+                            <label class="form-label">Full Name <span class="text-[var(--primary)]">*</span></label>
+                            <input type="text" name="full_name" id="input-name" required class="form-input" placeholder="Your full name">
+                        </div>
+                        <div>
+                            <label class="form-label">Position</label>
+                            <input type="text" name="position" id="input-position" class="form-input" placeholder="Designation">
+                        </div>
+                        <div>
+                            <label class="form-label">Company</label>
+                            <input type="text" name="company" id="input-company" class="form-input" placeholder="Company name">
+                        </div>
+                        <div>
+                            <label class="form-label">Email <span class="text-[var(--primary)]">*</span></label>
+                            <input type="email" name="email" required class="form-input" placeholder="you@example.com">
+                        </div>
+                        <div>
+                            <label class="form-label">Phone</label>
+                            <input type="tel" name="phone" class="form-input" placeholder="+91 00000 00000">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="form-label">Message</label>
+                        <textarea name="message" rows="4" class="form-input resize-none" placeholder="Tell us more..."></textarea>
+                    </div>
+                </div>
+
+                <label class="flex items-start gap-3 text-xs text-white/50 cursor-pointer">
+                    <input type="checkbox" name="marketing_consent" class="w-4 h-4 mt-0.5 accent-[var(--primary)] rounded">
+                    By checking this box, I wish to receive marketing information about the Summit
+                </label>
+
+                <button type="submit" class="btn btn-primary group">
+                    <span>Request Access</span>
+                    <span class="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+                </button>
+
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    .form-label{ display:block; font-size:0.8rem; font-weight:600; color:rgba(255,255,255,0.6); margin-bottom:0.4rem; }
+    .form-input{
+        width:100%; border-radius:0.75rem; background:rgba(255,255,255,0.04);
+        border:1px solid var(--border); padding:0.75rem 1rem; color:#fff;
+        transition:border-color .2s ease, background .2s ease;
+    }
+    .form-input::placeholder{ color:rgba(255,255,255,0.25); }
+    .form-input:focus{ outline:none; border-color:var(--primary); background:rgba(255,255,255,0.06); }
+
+    .interest-chip .chip-label{
+        display:flex; align-items:center; gap:0.5rem;
+        padding:0.6rem 1.1rem; border-radius:9999px;
+        border:1px solid var(--border); background:rgba(255,255,255,0.03);
+        font-size:0.8rem; font-weight:600; color:rgba(255,255,255,0.7);
+        cursor:pointer; transition:all .2s ease; user-select:none;
+    }
+    .interest-chip input:checked + .chip-label{
+        background:var(--primary); border-color:var(--primary); color:#fff;
+    }
+</style>
+
+<script>
+(function () {
+    const eventDate = new Date('2026-11-10T18:00:00');
+
+    function updateCountdown() {
+        const el = document.getElementById('countdown-text');
+        if (!el) return;
+        const diff = eventDate - new Date();
+        const sign = diff < 0 ? '-' : '';
+        const abs = Math.abs(diff);
+        const d = Math.floor(abs / 86400000);
+        const h = Math.floor((abs / 3600000) % 24);
+        const m = Math.floor((abs / 60000) % 60);
+        const s = Math.floor((abs / 1000) % 60);
+        el.textContent = `${sign}${d}d : ${sign}${h}h : ${sign}${m}m : ${sign}${s}s`;
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Live badge preview
+    const nameInput = document.getElementById('input-name');
+    const positionInput = document.getElementById('input-position');
+    const companyInput = document.getElementById('input-company');
+    const badgeName = document.getElementById('badge-name');
+    const badgeRole = document.getElementById('badge-role');
+    const badgeTags = document.getElementById('badge-tags');
+
+    function updateBadge() {
+        badgeName.textContent = nameInput.value.trim() || 'Your Name';
+        const pos = positionInput.value.trim();
+        const comp = companyInput.value.trim();
+        badgeRole.textContent = (pos || comp) ? [pos, comp].filter(Boolean).join(' · ') : 'Position · Company';
+    }
+    [nameInput, positionInput, companyInput].forEach(el => el && el.addEventListener('input', updateBadge));
+
+    // Live interest tags on badge
+    const interestBoxes = document.querySelectorAll('input[name="interest"]');
+    function updateTags() {
+        const checked = Array.from(interestBoxes).filter(cb => cb.checked).map(cb => cb.value);
+        if (checked.length === 0) {
+            badgeTags.innerHTML = '<span class="text-[10px] text-white/30 italic">Select an interest below</span>';
+            return;
+        }
+        badgeTags.innerHTML = checked.map(v =>
+            `<span class="text-[10px] uppercase tracking-wide font-bold bg-white/10 border border-white/10 rounded-full px-2.5 py-1">${v}</span>`
+        ).join('');
+    }
+    interestBoxes.forEach(cb => cb.addEventListener('change', updateTags));
+})();
+</script>
+
+{% endblock %}

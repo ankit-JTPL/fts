@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Speakers | Future Tech Summit {% endblock %}
+{% block content %}
+
+<!-- Speakers Hero -->
+<section class="w-full py-24 px-4 sm:px-6 lg:px-8 text-center text-white relative overflow-hidden"
+style="background-image: var(--primary-gradient)">
+    <div class="max-w-4xl mx-auto relative z-10 space-y-4">
+        <span class="fade-up heading-tag">SCHEDULE</span>
+        <h2 class="zoom-in primary-title text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tighter text-white">
+             Speakers
+        </h2>
+        <p class="fade-up text-sm sm:text-base text-[var(--text-light)] max-w-xl mx-auto leading-relaxed">
+           Meet the visionaries, leaders, and innovators shaping the Future Technologies Summit 2026.
+        </p>
+    </div>
+</section>
+
+
+
+
+<!-- Speakers Body -->
+<section class="w-full text-white py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+style="background-image: var(--gradient_dark)">
+    <div class="max-w-7xl mx-auto w-full relative z-10">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <!-- Speaker card -->
+            <div class="fade-up  rounded-3xl border border-[var(--border)] bg-white/[0.02] hover:bg-white/[0.04] transition-all relative overflow-hidden group">
+                <div class="w-full border border-[var(--border)]">
+                    <img src="{% static 'images/speakers/john_livingstone.jpg' %}" alt="Lt Cdr John Livingstone (R)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-5">
+                  <h3 class="text-lg font-extrabold text-white">Lt Cdr John Livingstone (R)</h3>
+                  <p class="text-sm text-[var(--text-light)] mt-2 leading-relaxed">Founder - Johnnette Group- Founder &amp; Angel Investor - Livingstone Institute of Future Technologies (LIFT) Secretary General - IFFAAD</p>
+                </div>
+            </div>
+
+            <div class="fade-up rounded-3xl border border-[var(--border)] bg-white/[0.02] hover:bg-white/[0.04] transition-all relative overflow-hidden group">
+                                <div class="w-full border border-[var(--border)]">
+
+                    <img src="{% static 'images/speakers/rajiv-vermani.jpg' %}" alt="Rajiv Vermani" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-5">
+
+                <h3 class="text-lg font-extrabold text-white">Rajiv Vermani</h3>
+                <p class="text-sm text-[var(--text-light)] mt-2 leading-relaxed">Director &amp; CEO - Digital and Automation at Hardcastle Petrofer</p>
+            </div>
+            </div>
+
+            <div class="fade-up  rounded-3xl border border-[var(--border)] bg-white/[0.02] hover:bg-white/[0.04] transition-all relative overflow-hidden group">
+                  <div class="w-full border border-[var(--border)]">
+                    <img src="{% static 'images/speakers/arjun-kumar.jpg' %}" alt="Arjun Kumar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-5">
+
+                <h3 class="text-lg font-extrabold text-white">Arjun Kumar</h3>
+                <p class="text-sm text-[var(--text-light)] mt-2 leading-relaxed">Scientist F &amp; Associate Director Directorate of Technology Development Fund, DRDO</p>
+            </div>
+            </div>
+
+            <div class="fade-up rounded-3xl border border-[var(--border)] bg-white/[0.02] hover:bg-white/[0.04] transition-all relative overflow-hidden group">
+                <div class="w-full border border-[var(--border)]">
+
+                    <img src="{% static 'images/speakers/navneet-kaushik.jpg' %}" alt="Cdr Navneet Kaushik (Veteran)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-5">
+                <h3 class="text-lg font-extrabold text-white">Cdr Navneet Kaushik (Veteran)</h3>
+                <p class="text-sm text-[var(--text-light)] mt-2 leading-relaxed">Founder, Jamwant Ventures Angel Fund Former Scientist 'F', Project Director - Technology Development Board, Department of Science and Technology Future technologies summit 2025</p>
+            </div>
+            </div>
+
+            <div class="fade-up  rounded-3xl border border-[var(--border)] bg-white/[0.02] hover:bg-white/[0.04] transition-all relative overflow-hidden group">
+               <div class="w-full border border-[var(--border)]">
+                    <img src="{% static 'images/speakers/pavleen-gujraal.jpg' %}" alt="Pavleen Gujraal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-5">
+
+                <h3 class="text-lg font-extrabold text-white">Pavleen Gujraal</h3>
+                <p class="text-sm text-[var(--text-light)] mt-2 leading-relaxed">Bollywood Actor &amp; Celebrity Anchor</p>
+                </div>
+           
+              </div>
+
+            <div class="fade-up  rounded-3xl border border-[var(--border)] bg-white/[0.02] hover:bg-white/[0.04] transition-all relative overflow-hidden group">
+                 <div class="w-full border border-[var(--border)]">
+                    <img src="{% static 'images/speakers/sk-sharma.jpg' %}" alt="Maj Gen SK Sharma, SM**, VSM" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-5">
+
+                <h3 class="text-lg font-extrabold text-white">Maj Gen SK Sharma, SM**, VSM</h3>
+                <p class="text-sm text-[var(--text-light)] mt-2 leading-relaxed">CEO &amp; MD Indo Russian Rifles Pvt Ltd (IRRPL)</p>
+                </div>
+            
+              </div>
+
+            <div class="fade-up  rounded-3xl border border-[var(--border)] bg-white/[0.02] hover:bg-white/[0.04] transition-all relative overflow-hidden group">
+                 <div class="w-full border border-[var(--border)]">
+                    <img src="{% static 'images/speakers/m-s-prasad.jpg' %}" alt="Prof M S Prasad" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-5">
+
+                <h3 class="text-lg font-extrabold text-white">Prof M S Prasad</h3>
+                <p class="text-sm text-[var(--text-light)] mt-2 leading-relaxed">Director - Amity Space Science Institute of Technology Ex - Scientist G, DRDO</p>
+                </div>
+            
+              </div>
+
+            <div class="fade-up rounded-3xl border border-[var(--border)] bg-white/[0.02] hover:bg-white/[0.04] transition-all relative overflow-hidden group">
+                 <div class="w-full border border-[var(--border)]">
+                    <img src="{% static 'images/speakers/nishakant-ojha.jpg' %}" alt="Prof (Dr) Nishakant Ojha" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-5">
+
+                <h3 class="text-lg font-extrabold text-white">Prof (Dr) Nishakant Ojha</h3>
+                <p class="text-sm text-[var(--text-light)] mt-2 leading-relaxed">Chairman - (Study Group) HQ IDS Ministry of Defence (Renowned Strategist in Advanced AI and Future Technologies)</p>
+                </div>
+            
+              </div>
+
+            <div class="fade-up  rounded-3xl border border-[var(--border)] bg-white/[0.02] hover:bg-white/[0.04] transition-all relative overflow-hidden group">
+                 <div class="w-full border border-[var(--border)]">
+                    <img src="{% static 'images/speakers/r-k-narang.jpg' %}" alt="Gp Captain (Dr.) R. K. Narang" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-5">
+
+                <h3 class="text-lg font-extrabold text-white">Gp Captain (Dr.) R. K. Narang</h3>
+                <p class="text-sm text-[var(--text-light)] mt-2 leading-relaxed">Author, Defense Analyst</p>
+                </div>
+
+            </div>
+
+            <div class="fade-up rounded-3xl border border-[var(--border)] bg-white/[0.02] hover:bg-white/[0.04] transition-all relative overflow-hidden group">
+                 <div class="w-full border border-[var(--border)]">
+                    <img src="{% static 'images/speakers/sanat-kaul.jpg' %}" alt="Sanat Kaul" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-5">
+
+                <h3 class="text-lg font-extrabold text-white">Sanat Kaul</h3>
+                <p class="text-sm text-[var(--text-light)] mt-2 leading-relaxed">Chairman - International Foundation of Aviation, Aerospace and Drones</p>
+                </div>
+            
+              </div>
+
+        </div>
+    </div>
+</section>
+{% endblock %}

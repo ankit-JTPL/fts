@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Tickets | Future Tech Summit {% endblock %}
+{% block content %}
+
+<!-- ================= HERO: PASS SELECTION INTRO (Gradient reserved for hero only) ================= -->
+<section class="w-full py-24 px-4 sm:px-6 lg:px-8 text-center text-white relative overflow-hidden"
+style="background-image: var(--primary-gradient)">
+    <div class="max-w-4xl mx-auto relative z-10 space-y-4">
+        <span class="fade-up heading-tag">SECURE YOUR SEAT</span>
+        <h2 class="zoom-in primary-title text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tighter text-white">
+             Choose Your Pass
+        </h2>
+        <p class="fade-up text-sm sm:text-base text-[var(--text-light)] max-w-xl mx-auto leading-relaxed">
+           Join innovators, investors, and policymakers at the Future Technologies
+            Summit.
+        </p>
+    </div>
+</section>
+
+<!-- ================= TICKET GRID: LIGHT SECTION ================= -->
+<section
+    class="w-full py-20 px-4 sm:px-6 lg:px-8 relative"
+    style="background-color: var(--bg-main)"
+    >
+    <div class="max-w-7xl mx-auto w-full space-y-16 relative z-10">
+
+        <div class="w-full text-center space-y-3 select-none">
+            <span class="fade-up heading-tag">PRICING</span>
+            <h2 class="fade-up primary-title">Pick the Pass That Fits You</h2>
+        </div>
+
+        <div class="stagger-wrapper grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- ============ TICKET CARD: STATIC DATA (EventDetails fields) ============ -->
+            {% for event_data in events_data %}
+            <div class="stagger-item group relative flex flex-col bg-white rounded-[2rem] border border-slate-200 overflow-hidden shadow-[0_15px_50px_-15px_rgba(0,0,0,0.06)] transition-transform duration-300 hover:-translate-y-2">
+                <!-- Event Banner -->
+                <div class="w-full aspect-[16/9] overflow-hidden bg-slate-100">
+                    <img
+                        src="{{ event_data.event_banner.url }}"
+                        alt="{{ event_data.title }}"
+                        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                        />
+                </div>
+
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="space-y-2 pb-6 border-b border-slate-200">
+                        <span class="text-xs font-bold uppercase tracking-widest text-[var(--primary)]">
+                            {{ event_data.subtitle }}
+                        </span>
+                        <h3 class="text-2xl font-black uppercase tracking-tight text-[var(--black)]">
+                            {{ event_data.title }}
+                        </h3>
+                        <div class="flex items-end gap-2 pt-2">
+                            <span class="text-4xl font-black text-[var(--black)]">₹{{ event_data.price }}</span>
+                            <span class="text-sm text-[var(--text-dark)] pb-1">/ person</span>
+                        </div>
+                    </div>
+
+                    <!-- Meta Badges: Date, Time, Venue -->
+                    <div class="flex flex-wrap gap-3 text-[11px] pt-6 pb-6 border-b border-slate-200">
+                        <span class="bg-slate-100 px-3 py-1.5 rounded-full flex items-center gap-2 text-[var(--text-dark)]">
+                            <i class="fa-regular fa-calendar text-[var(--primary)]"></i>
+                            {{ event_data.start_date|date:"d  F  Y" }} <b>TO </b> {{ event_data.end_date|date:"d  F  Y"}}
+                        </span>
+                        <span class="bg-slate-100 px-3 py-1.5 rounded-full flex items-center gap-2 text-[var(--text-dark)]">
+                            <i class="fa-regular fa-clock text-[var(--primary)]"></i>
+                            {{ event_data.start_time|time:"g:i A" }} <b>TO </b> {{ event_data.end_time|time:"g:i A"}}
+                        </span>
+                        <span class="bg-slate-100 px-3 py-1.5 rounded-full flex items-center gap-2 text-[var(--text-dark)]">
+                            <i class="fa-solid fa-location-dot text-[var(--primary)]"></i>
+                            {{ event_data.venue }}
+                        </span>
+                        <span class="bg-slate-100 px-3 py-1.5 rounded-full flex items-center gap-2 text-[var(--text-dark)]">
+                            <i class="fa-solid fa-location-dot text-[var(--primary)]"></i>
+                            <b class="uppercase">Organized By: </b> {{ event_data.organizer }}
+                        </span>
+                    </div>
+
+                    <a href="{% url 'event-ticket-details' event_data.slug %}" class="btn btn-primary w-full justify-center mt-4 text-center group-hover:gap-3 transition-all">
+                        <span>View Details</span>
+                        <span class="transform group-hover:translate-x-0.5 transition-transform">↗</span>
+                    </a>
+                </div>
+            </div>
+            {% empty %}
+            <!-- ============ EMPTY STATE: NO EVENTS AVAILABLE ============ -->
+            <div class="col-span-full flex flex-col items-center justify-center text-center py-20 px-6">
+                <div class="w-20 h-20 rounded-full bg-slate-100 flex items-center justify-center mb-6">
+                    <i class="fa-regular fa-calendar-xmark text-3xl text-[var(--primary)]"></i>
+                </div>
+                <h3 class="text-xl sm:text-2xl font-black uppercase tracking-tight text-[var(--black)] mb-2">
+                    No Events Available
+                </h3>
+                <p class="text-sm text-[var(--text-dark)] leading-relaxed max-w-sm">
+                    We don't have any upcoming passes listed right now. Check back soon,
+                    or reach out to our team for updates on the next edition.
+                </p>
+                <a href="{% url 'contact' %}" class="btn btn-primary mt-8">
+                    <span>Contact Us</span>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ================= SOLID DARK SECTION: WHAT'S INCLUDED ================= -->
+
+<!--
+<section class="w-full bg-[var(--black)] text-white py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto w-full space-y-14 relative z-10">
+        <div class="border-b border-[var(--border)] pb-8">
+            <h2 class="zoom-in text-3xl sm:text-[50px] font-black uppercase tracking-tight">
+                Every Pass Includes
+            </h2>
+        </div>
+
+        <div class="stagger-wrapper grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            <div class="stagger-item space-y-3">
+                <i class="fa-solid fa-shield-halved text-2xl text-[var(--primary)]"></i>
+                <h4 class="text-lg font-bold uppercase tracking-wide">Verified Entry</h4>
+                <p class="text-sm text-white/60 leading-relaxed">
+                    QR-based digital pass with instant email confirmation.
+                </p>
+            </div>
+            <div class="stagger-item space-y-3">
+                <i class="fa-solid fa-people-group text-2xl text-[var(--primary)]"></i>
+                <h4 class="text-lg font-bold uppercase tracking-wide">Networking Access</h4>
+                <p class="text-sm text-white/60 leading-relaxed">
+                    Connect with speakers, investors, and fellow delegates.
+                </p>
+            </div>
+            <div class="stagger-item space-y-3">
+                <i class="fa-solid fa-mobile-screen text-2xl text-[var(--primary)]"></i>
+                <h4 class="text-lg font-bold uppercase tracking-wide">Event App Access</h4>
+                <p class="text-sm text-white/60 leading-relaxed">
+                    Live schedule, speaker bios, and session reminders.
+                </p>
+            </div>
+            <div class="stagger-item space-y-3">
+                <i class="fa-solid fa-rotate-left text-2xl text-[var(--primary)]"></i>
+                <h4 class="text-lg font-bold uppercase tracking-wide">Flexible Refunds</h4>
+                <p class="text-sm text-white/60 leading-relaxed">
+                    Full refund up to 14 days before the summit.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+-->
+
+<!-- ================= LIGHT SECTION: FAQ / FINAL CTA ================= -->
+<!--
+<section class="w-full py-20 px-4 sm:px-6 lg:px-8 relative" style="background-color: var(--bg-main)">
+    <div class="max-w-4xl mx-auto w-full text-center space-y-6 relative z-10">
+        <h2 class="fade-up primary-title">Still Deciding?</h2>
+        <p class="fade-up text-sm sm:text-base text-[var(--text-dark)] leading-relaxed max-w-xl mx-auto">
+            Group discounts and custom sponsorship-linked passes are available for
+            teams of 10 or more. Reach out to our team for a tailored quote.
+        </p>
+        <a href="#" class="btn btn-primary inline-flex">
+            <span>Contact for Group Rates</span>
+        </a>
+    </div>
+</section>
+-->
+
+{% endblock %}
+
+

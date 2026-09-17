@@ -1,0 +1,125 @@
+:root {
+  /* =========================== Core Colors =========================== */
+  --primary: #e60067;       /* Brand Pink / Active Text State */
+  --heading: #060c3c;          /* Deep Logo Purple-Navy */
+  --black: #000000;         /* Headings & Dark Buttons */
+  --white: #ffffff;
+  --bg-main: #fdf5f5;     /* Clean Paragraph Text */
+  --text-light:#e2e2e2;
+  --text-dark:#141414;
+  --border:#505050;
+  --success: #098f3c;
+
+  --gradient-btn: linear-gradient(120deg, #e60067 0%, #9b30ff 50%, #7b2ff7 100%);
+  --gradient-btn-secondary: linear-gradient(90deg, #ff007f 0%, #e60067 50%, #d62246 100%);
+  --primary-gradient: linear-gradient(
+        to bottom,
+        #20065e 0%,
+        #080214 50%,
+        #2d0031 100%
+    );
+
+  --gradient_secondary: linear-gradient(to bottom, #000, #701a75, #b30050);
+
+  --gradient_dark: linear-gradient(
+     to bottom,
+    #410444 0%,   
+    #160146 35%,  
+    #0f0222 65%,  
+    #240129 100%   
+  );
+
+  }
+
+@font-face {
+    font-family: "Funnel Sans";
+    src: url("../font/FunnelSans-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Funnel Sans";
+    src: url("../font/FunnelSans-LightItalic.ttf") format("truetype");
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Funnel Sans";
+    src: url("../font/FunnelSans-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Funnel Sans";
+    src: url("../font/FunnelSans-Italic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Funnel Sans";
+    src: url("../font/FunnelSans-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Funnel Sans";
+    src: url("../font/FunnelSans-MediumItalic.ttf") format("truetype");
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Funnel Sans";
+    src: url("../font/FunnelSans-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Funnel Sans";
+    src: url("../font/FunnelSans-SemiBoldItalic.ttf") format("truetype");
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Funnel Sans";
+    src: url("../font/FunnelSans-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Funnel Sans";
+    src: url("../font/FunnelSans-BoldItalic.ttf") format("truetype");
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Funnel Sans";
+    src: url("../font/FunnelSans-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Funnel Sans";
+    src: url("../font/FunnelSans-ExtraBoldItalic.ttf") format("truetype");
+    font-weight: 800;
+    font-style: italic;
+}
+
+@theme {
+    --font-sans: "Funnel Sans", sans-serif;
+}
+
+body {
+    font-family: "Funnel Sans", sans-serif;
+    background: var(--bg-main);
+}

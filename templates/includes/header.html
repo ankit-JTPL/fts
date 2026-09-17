@@ -1,0 +1,87 @@
+{% load static %}
+<header class="bg-white border-b border-gray-100 sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      
+      <!-- Logo Container -->
+      <div class="flex-shrink-0 flex items-center">
+        <a href="{% url 'home' %}" class="flex items-center">
+          <img src="{% static 'images/logo/logo.png' %}" alt="Future Logo" class=" w-auto object-contain">
+        </a>
+      </div>
+
+      <!-- Desktop Navigation Links (Dynamic Active State) -->
+      <nav class="hidden md:flex space-x-8 text-[16px] font-semibold text-gray-950">
+        <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}text-[var(--primary)]{% else %}text-gray-950 hover:text-[var(--primary)]{% endif %} transition-colors">Home</a>
+        <a href="{% url 'agenda' %}" class="{% if request.resolver_match.url_name == 'agenda' %}text-[var(--primary)]{% else %}text-gray-950 hover:text-[var(--primary)]{% endif %} transition-colors">Agenda</a>
+        <a href="{% url 'speakers' %}" class="{% if request.resolver_match.url_name == 'speakers' %}text-[var(--primary)]{% else %}text-gray-950 hover:text-[var(--primary)]{% endif %} transition-colors">Speakers</a>
+        <a href="{% url 'sponsors' %}" class="{% if request.resolver_match.url_name == 'sponsors' %}text-[var(--primary)]{% else %}text-gray-950 hover:text-[var(--primary)]{% endif %} transition-colors">Sponsors</a>
+        <a href="{% url 'media' %}" class="{% if request.resolver_match.url_name == 'media' %}text-[var(--primary)]{% else %}text-gray-950 hover:text-[var(--primary)]{% endif %} transition-colors">Media</a>
+        <a href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}text-[var(--primary)]{% else %}text-gray-950 hover:text-[var(--primary)]{% endif %} transition-colors">Contact</a>
+      </nav>
+
+      <!-- Desktop Call to Action Button -->
+        <div class="hidden md:flex items-center">
+            <a href="{% url 'event-tickets' %}" class="btn btn-primary group"> Book ticket
+            <span class="ml-1 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+            </a>
+        </div>
+
+      <!-- Mobile Hamburger Button -->
+      <div class="flex items-center md:hidden">
+        <button
+          id="hamburger"
+          type="button"
+          class="inline-flex items-center justify-center p-2 text-2xl text-gray-800 hover:text-pink-500 transition-colors focus:outline-none"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+        >
+          <!-- Dono icons inline CSS display use karenge control ke liye -->
+          <i id="hamburger-icon" class="fa-solid fa-bars" style="display: block;"></i>
+          <i id="close-icon" class="fa-solid fa-xmark" style="display: none;"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="navLinks" class="hidden md:hidden border-t border-gray-100 bg-white shadow-lg transition-all duration-200">
+    <div class="px-4 pt-2 pb-4 space-y-1 sm:px-3 text-base font-semibold text-gray-950">
+      <a href="{% url 'home' %}" class="block px-3 py-2 rounded-md {% if request.resolver_match.url_name == 'home' %}text-pink-500 bg-pink-50{% else %}hover:bg-gray-50 hover:text-pink-500{% endif %}">Home</a>
+      <a href="{% url 'agenda' %}" class="block px-3 py-2 rounded-md {% if request.resolver_match.url_name == 'agenda' %}text-pink-500 bg-pink-50{% else %}hover:bg-gray-50 hover:text-pink-500{% endif %}">Agenda</a>
+      <a href="{% url 'speakers' %}" class="block px-3 py-2 rounded-md {% if request.resolver_match.url_name == 'speakers' %}text-pink-500 bg-pink-50{% else %}hover:bg-gray-50 hover:text-pink-500{% endif %}">Speakers</a>
+      <a href="{% url 'sponsors' %}" class="block px-3 py-2 rounded-md {% if request.resolver_match.url_name == 'sponsors' %}text-pink-500 bg-pink-50{% else %}hover:bg-gray-50 hover:text-pink-500{% endif %}">Sponsors</a>
+      <a href="{% url 'media' %}" class="block px-3 py-2 rounded-md {% if request.resolver_match.url_name == 'media' %}text-pink-500 bg-pink-50{% else %}hover:bg-gray-50 hover:text-pink-500{% endif %}">Media</a>
+      <a href="{% url 'contact' %}" class="block px-3 py-2 rounded-md {% if request.resolver_match.url_name == 'contact' %}text-pink-500 bg-pink-50{% else %}hover:bg-gray-50 hover:text-pink-500{% endif %}">Contact</a>
+      <div class="pt-4 pb-2 border-t border-gray-100 mt-2">
+        <a href="{% url 'event-tickets' %}" class="btn btn-secondary w-full justify-center group">
+          Book ticket 
+          <span class="ml-1 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- JavaScript Mobile Fix -->
+<script>
+  const hamburgerBtn = document.getElementById("hamburger");
+  const navLinksMenu = document.getElementById("navLinks");
+  const hamburgerIcon = document.getElementById("hamburger-icon");
+  const closeIcon = document.getElementById("close-icon");
+
+  hamburgerBtn.addEventListener("click", () => {
+    // Dropdown toggle
+    navLinksMenu.classList.toggle("hidden");
+    
+    // Icon toggle logic fix
+    if (hamburgerIcon.style.display === "block") {
+      hamburgerIcon.style.display = "none";
+      closeIcon.style.display = "block";
+    } else {
+      hamburgerIcon.style.display = "block";
+      closeIcon.style.display = "none";
+    }
+  });
+</script>

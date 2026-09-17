@@ -1,0 +1,48 @@
+{% if messages %}
+<div id="alerts" class="fixed top-24 left-1/2 -translate-x-1/2 z-[100] flex flex-col gap-2 w-[420px] max-w-[95vw]">
+  {% for message in messages %}
+  <div class="banner flex items-center gap-3 px-4 py-3 rounded-lg border-l-4 border-t border-r border-b
+    {% if message.tags == 'success' %} bg-emerald-50/90 border-l-emerald-500 border-emerald-200
+    {% elif message.tags == 'error' %} bg-red-50/90 border-l-red-500 border-red-200
+    {% elif message.tags == 'warning' %} bg-amber-50/90 border-l-amber-500 border-amber-200
+    {% else %} bg-white/90 border-l-[var(--primary)] border-gray-200 {% endif %}
+    opacity-0 -translate-y-2 transition-all duration-300 backdrop-blur-sm shadow-lg">
+
+    <i class="text-sm flex-shrink-0
+      {% if message.tags == 'success' %} fa-solid fa-circle-check text-emerald-600
+      {% elif message.tags == 'error' %} fa-solid fa-circle-xmark text-red-600
+      {% elif message.tags == 'warning' %} fa-solid fa-triangle-exclamation text-amber-600
+      {% else %} fa-solid fa-circle-info text-[var(--primary)] {% endif %}"></i>
+
+    <div class="flex-1 flex items-center gap-2 min-w-0">
+      <p class="text-xs font-semibold capitalize flex-shrink-0
+        {% if message.tags == 'success' %} text-emerald-800
+        {% elif message.tags == 'error' %} text-red-800
+        {% elif message.tags == 'warning' %} text-amber-800
+        {% else %} text-[var(--text-dark)] {% endif %}">{{ message.tags }}</p>
+      <span class="text-[10px] opacity-60 text-[var(--text-dark)]">•</span>
+      <p class="text-xs truncate
+        {% if message.tags == 'success' %} text-emerald-700
+        {% elif message.tags == 'error' %} text-red-700
+        {% elif message.tags == 'warning' %} text-amber-700
+        {% else %} text-[var(--text-dark)] {% endif %}">{{ message }}</p>
+    </div>
+
+    <button onclick="this.closest('.banner').remove()" class="flex-shrink-0 w-5 h-5 flex items-center justify-center rounded text-red-600 hover:bg-black/10 hover:text-red-600 transition-colors">
+      <i class="fa-solid fa-xmark text-[16px]"></i>
+    </button>
+  </div>
+  {% endfor %}
+</div>
+
+<script>
+  document.querySelectorAll('.banner').forEach((b, i) => {
+    setTimeout(() => { b.classList.replace('opacity-0','opacity-100'); b.classList.replace('-translate-y-2','translate-y-0'); }, i * 100);
+    setTimeout(() => {
+      b.classList.replace('opacity-100','opacity-0');
+      b.classList.replace('translate-y-0','-translate-y-2');
+      setTimeout(() => b.remove(), 300);
+    }, 4500 + i * 100);
+  });
+</script>
+{% endif %}

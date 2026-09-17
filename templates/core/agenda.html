@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Agenda | Future Tech Summit {% endblock %}
+{% block content %}
+
+<!-- Agenda Hero -->
+<section class="w-full py-24 px-4 sm:px-6 lg:px-8 text-center text-white relative overflow-hidden"
+style="background-image: var(--primary-gradient)">
+    <div class="max-w-4xl mx-auto relative z-10 space-y-4">
+        <span class="fade-up heading-tag">SCHEDULE</span>
+        <h2 class="zoom-in primary-title text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tighter text-white">
+             Summit Agenda
+        </h2>
+        <p class="fade-up text-sm sm:text-base text-[var(--text-light)] max-w-xl mx-auto leading-relaxed">
+           Two days of keynotes, panels, and celebrations across the Future Technologies Summit 2026.
+        </p>
+    </div>
+</section>
+
+
+<!-- Agenda Body -->
+<section class="w-full text-white py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+style="background-image: var(--gradient_dark)">
+    <div class="max-w-5xl mx-auto w-full space-y-10 relative z-10">
+
+        <!-- Day Tabs -->
+        <div class="fade-up flex flex-wrap justify-center gap-4" id="agendaTabs">
+            <button
+                type="button"
+                class="agenda-tab px-6 py-3 rounded-full border border-[var(--primary)] bg-[var(--primary)] text-white font-bold uppercase text-sm tracking-wide transition-all"
+                data-target="day-1"
+                >
+                <i class="fa-regular fa-calendar me-2"></i>Day 1 — 10 Nov
+            </button>
+            <button
+                type="button"
+                class="agenda-tab px-6 py-3 rounded-full border border-[var(--border)] bg-white/5 text-white font-bold uppercase text-sm tracking-wide transition-all"
+                data-target="day-2"
+                >
+                <i class="fa-regular fa-calendar text-[var(--primary)] me-2"></i>Day 2 — 11 Nov
+            </button>
+        </div>
+
+        <!-- Day 1 -->
+        <div id="day-1" class="agenda-day flex flex-col gap-5">
+
+            <div class="p-6 rounded-3xl border border-[var(--border)] bg-white/[0.02] hover:bg-white/[0.04] transition-all relative overflow-hidden group">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+                    <div class="flex items-center gap-3">
+                        <span class="bg-white/5 px-3 py-1.5 rounded-full border border-white/5 text-[12px] font-bold text-[var(--primary)] flex items-center gap-2">
+                            <i class="fa-regular fa-clock"></i> 18:00 – 19:00
+                        </span>
+                    </div>
+                    <span class="text-[11px] uppercase  font-bold">Speaker</span>
+                </div>
+                <h4 class="text-xl font-extrabold text-white mt-4">FT Awards</h4>
+            </div>
+
+            <div class="p-6 rounded-3xl border border-[var(--border)] bg-white/[0.02] hover:bg-white/[0.04] transition-all relative overflow-hidden group">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+                    <span class="bg-white/5 px-3 py-1.5 rounded-full border border-white/5 text-[12px] font-bold text-[var(--primary)] flex items-center gap-2">
+                        <i class="fa-regular fa-clock"></i> 19:00 – 20:00
+                    </span>
+                    <span class="text-[11px] uppercase font-bold">Speaker </span>
+                </div>
+                <h4 class="text-xl font-extrabold text-white mt-4">Fashion Show</h4>
+            </div>
+
+             <div class="p-6 rounded-3xl border border-[var(--border)] bg-white/[0.02] hover:bg-white/[0.04] transition-all relative overflow-hidden group">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+                    <span class="bg-white/5 px-3 py-1.5 rounded-full border border-white/5 text-[12px] font-bold text-[var(--primary)] flex items-center gap-2">
+                        <i class="fa-regular fa-clock"></i> 20:00 – 21:00
+                    </span>
+                    <span class="text-[11px] uppercase  font-bold">Speaker</span>
+                </div>
+                <h4 class="text-xl font-extrabold text-white mt-4">Johnnette Anniversary</h4>
+            </div>
+
+            
+
+            <div class="p-6 rounded-3xl border border-[var(--border)] bg-white/[0.02] hover:bg-white/[0.04] transition-all relative overflow-hidden group">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+                    <span class="bg-white/5 px-3 py-1.5 rounded-full border border-white/5 text-[12px] font-bold text-[var(--primary)] flex items-center gap-2">
+                        <i class="fa-regular fa-clock"></i> 21:00 – 22:00
+                    </span>
+                    <span class="text-[11px] uppercase  font-bold">Speaker </span>
+                </div>
+                <h4 class="text-xl font-extrabold text-white mt-4">FTS Reception Cocktails</h4>
+            </div>
+
+        </div>
+
+        <!-- Day 2 -->
+        <div id="day-2" class="agenda-day flex flex-col gap-5 hidden">
+
+            <div class="p-6 rounded-3xl border border-[var(--border)] bg-white/[0.02] hover:bg-white/[0.04] transition-all relative overflow-hidden group">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+                    <span class="bg-white/5 px-3 py-1.5 rounded-full border border-white/5 text-[12px] font-bold text-[var(--primary)] flex items-center gap-2">
+                        <i class="fa-regular fa-clock"></i> 09:00 – 10:00
+                    </span>
+                    <span class="text-[11px] uppercase  font-bold">Speaker </span>
+                </div>
+                <h4 class="text-xl font-extrabold text-white mt-4">Inaugural Session</h4>
+            </div>
+
+            <div class="p-6 rounded-3xl border border-[var(--border)] bg-white/[0.02] hover:bg-white/[0.04] transition-all relative overflow-hidden group">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+                    <span class="bg-white/5 px-3 py-1.5 rounded-full border border-white/5 text-[12px] font-bold text-[var(--primary)] flex items-center gap-2">
+                        <i class="fa-regular fa-clock"></i> 10:00 – 11:00
+                    </span>
+                    <span class="text-[11px] uppercase font-bold">Speaker </span>
+                </div>
+                <h4 class="text-xl font-extrabold text-white mt-4">Future of World Session</h4>
+            </div>
+
+            <div class="p-6 rounded-3xl border border-[var(--border)] bg-white/[0.02] hover:bg-white/[0.04] transition-all relative overflow-hidden group">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+                    <span class="bg-white/5 px-3 py-1.5 rounded-full border border-white/5 text-[12px] font-bold text-[var(--primary)] flex items-center gap-2">
+                        <i class="fa-regular fa-clock"></i> 11:00 – 12:00
+                    </span>
+                    <span class="text-[11px] uppercase font-bold">Speaker</span>
+                </div>
+                <h4 class="text-xl font-extrabold text-white mt-4">Future of Wars Session</h4>
+            </div>
+
+            <div class="p-6 rounded-3xl border border-[var(--border)] bg-white/[0.02] hover:bg-white/[0.04] transition-all relative overflow-hidden group">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+                    <span class="bg-white/5 px-3 py-1.5 rounded-full border border-white/5 text-[12px] font-bold text-[var(--primary)] flex items-center gap-2">
+                        <i class="fa-regular fa-clock"></i> 12:00 – 13:00
+                    </span>
+                    <span class="text-[11px] uppercase font-bold">Speaker </span>
+                </div>
+                <h4 class="text-xl font-extrabold text-white mt-4">Future of Space Session</h4>
+            </div>
+
+            <div class="p-6 rounded-3xl border border-dashed border-[var(--border)] bg-transparent hover:bg-white/[0.02] transition-all relative overflow-hidden group">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+                    <span class="bg-white/5 px-3 py-1.5 rounded-full border border-white/5 text-[12px] font-bold text-white/50 flex items-center gap-2">
+                        <i class="fa-solid fa-utensils"></i> 13:00 – 14:00
+                    </span>
+                    <span class="text-[11px] uppercase tracking-widest text-white/30 font-bold">Break</span>
+                </div>
+                <h4 class="text-xl font-extrabold text-white/60 mt-4">Lunch Break</h4>
+            </div>
+
+            <div class="p-6 rounded-3xl border border-[var(--border)] bg-white/[0.02] hover:bg-white/[0.04] transition-all relative overflow-hidden group">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+                    <span class="bg-white/5 px-3 py-1.5 rounded-full border border-white/5 text-[12px] font-bold text-[var(--primary)] flex items-center gap-2">
+                        <i class="fa-regular fa-clock"></i> 14:00 – 15:00
+                    </span>
+                    <span class="text-[11px] uppercase font-bold">Speaker </span>
+                </div>
+                <h4 class="text-xl font-extrabold text-white mt-4">Future of Climate &amp; Sustainability</h4>
+            </div>
+
+            <div class="p-6 rounded-3xl border border-[var(--border)] bg-white/[0.02] hover:bg-white/[0.04] transition-all relative overflow-hidden group">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+                    <span class="bg-white/5 px-3 py-1.5 rounded-full border border-white/5 text-[12px] font-bold text-[var(--primary)] flex items-center gap-2">
+                        <i class="fa-regular fa-clock"></i> 15:00 – 16:00
+                    </span>
+                    <span class="text-[11px] uppercase font-bold">Speaker</span>
+                </div>
+                <h4 class="text-xl font-extrabold text-white mt-4">Upcoming Futuretech Gadgets</h4>
+            </div>
+
+            <div class="p-6 rounded-3xl border border-[var(--border)] bg-white/[0.02] hover:bg-white/[0.04] transition-all relative overflow-hidden group">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+                    <span class="bg-white/5 px-3 py-1.5 rounded-full border border-white/5 text-[12px] font-bold text-[var(--primary)] flex items-center gap-2">
+                        <i class="fa-regular fa-clock"></i> 16:00 – 17:00
+                    </span>
+                    <span class="text-[11px] uppercase  font-bold">Speaker</span>
+                </div>
+                <h4 class="text-xl font-extrabold text-white mt-4">Future of Cinema &amp; Investments</h4>
+                <p class="text-[12px] text-white/40 mt-1 font-medium">Split session — 30 min each</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const tabs = document.querySelectorAll('.agenda-tab');
+    const days = document.querySelectorAll('.agenda-day');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function () {
+            const target = this.getAttribute('data-target');
+
+            // Reset all tabs to inactive style
+            tabs.forEach(t => {
+                t.classList.remove('bg-[var(--primary)]', 'border-[var(--primary)]');
+                t.classList.add('bg-white/5', 'border-[var(--border)]');
+            });
+
+            // Activate clicked tab
+            this.classList.remove('bg-white/5', 'border-[var(--border)]');
+            this.classList.add('bg-[var(--primary)]', 'border-[var(--primary)]');
+
+            // Show matching day, hide the rest
+            days.forEach(day => {
+                if (day.id === target) {
+                    day.classList.remove('hidden');
+                } else {
+                    day.classList.add('hidden');
+                }
+            });
+        });
+    });
+});
+</script>
+
+{% endblock %}
