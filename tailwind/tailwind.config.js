@@ -4,18 +4,19 @@ module.exports = {
     "../templates/**/*.html",
     "../**/templates/**/*.html",
     "../static/**/*.js",
-    "../static/**/*.css"
   ],
+
   theme: {
     screens: {
-      'sm': '567px',   // mobile
-      'md': '768px',   // Small Tablets
-      'lg': '1024px',  // Small Laptops
-      'xl': '1280px',  // Laptops/Desktops
-      '2xl': '1400px', // large screen
+      sm: "567px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1400px",
     },
+
     extend: {},
   },
-  plugins: [],
-}
 
+  plugins: [],
+};

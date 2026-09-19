@@ -2,9 +2,27 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
+# Points to project root where manage.py and .env live
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 load_dotenv(os.path.join(BASE_DIR, ".env"))
+
+# =========================================================
+# SECURITY & DEBUG
+# =========================================================
+
+SECRET_KEY = os.getenv(
+    "DJANGO_SECRET_KEY",
+    "django-insecure-+)igch%p_$0x&&a(t4ynxueaai5%g=&h9cnaqw=zzpgqxf^8nn"
+)
+
+# DEBUG = os.getenv("DEBUG", "True").lower() in ("true", "1", "t")
+
+ALLOWED_HOSTS = [
+    host.strip()
+    for host in os.getenv("ALLOWED_HOSTS", "*").split(",")
+    if host.strip()
+]
 
 # =========================================================
 # APPLICATION
@@ -17,9 +35,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     "tinymce",
-
+    # local_apps 
     "apps.core",
     "apps.event_booking",
 ]
@@ -58,22 +75,14 @@ WSGI_APPLICATION = "fts.wsgi.application"
 # DATABASE
 # =========================================================
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
-
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME', 'fts_db'),
-        'USER': os.environ.get('DB_USER', 'postgres'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', '202020'),
-        "HOST": os.getenv("DB_HOST", "db"),
-        'PORT': os.environ.get('DB_PORT', '5432'),
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("DB_NAME"),
+        "USER": os.getenv("DB_USER"),
+        "PASSWORD": os.getenv("DB_PASSWORD"),
+        "HOST": os.getenv("DB_HOST"),
+        "PORT": os.getenv("DB_PORT"),
     }
 }
 
@@ -96,58 +105,41 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # =========================================================
 # INTERNATIONALIZATION
 # =========================================================
 
 LANGUAGE_CODE = "en-us"
-
 TIME_ZONE = "UTC"
-
 USE_I18N = True
-
 USE_TZ = True
 
-
 # =========================================================
-# STATIC FILES
+# STATIC & MEDIA FILES
 # =========================================================
 
 STATIC_URL = "/static/"
-
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
-
+STATICFILES_DIRS = [BASE_DIR / "static",]
 STATIC_ROOT = BASE_DIR / "staticfiles"
-
-# =========================================================
-# MEDIA FILES
-# =========================================================
-
 MEDIA_URL = "/media/"
-
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = BASE_DIR / "media"
 
 # =========================================================
 # RAZORPAY
 # =========================================================
 
-RAZORPAY_KEY_ID = os.getenv("RAZORPAY_KEY_ID")
-
+RAZORPAY_KEY_ID = os.getenv("RAZORPAY_KEY_ID") 
 RAZORPAY_KEY_SECRET = os.getenv("RAZORPAY_KEY_SECRET")
-
 RAZORPAY_WEBHOOK_SECRET = os.getenv("RAZORPAY_WEBHOOK_SECRET")
 
 # =========================================================
 # EMAIL
 # =========================================================
+
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL")
