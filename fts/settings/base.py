@@ -10,19 +10,21 @@ load_dotenv(os.path.join(BASE_DIR, ".env"))
 # =========================================================
 # SECURITY & DEBUG
 # =========================================================
+DEBUG = os.getenv("DJANGO_DEBUG", "False").lower() in ("true", "1", "yes")
 
-SECRET_KEY = os.getenv(
-    "DJANGO_SECRET_KEY",
-    "django-insecure-+)igch%p_$0x&&a(t4ynxueaai5%g=&h9cnaqw=zzpgqxf^8nn"
-)
 
-# DEBUG = os.getenv("DEBUG", "True").lower() in ("true", "1", "t")
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+
+if not SECRET_KEY:
+    raise ValueError("DJANGO_SECRET_KEY is not set")
+
 
 ALLOWED_HOSTS = [
     host.strip()
-    for host in os.getenv("ALLOWED_HOSTS", "*").split(",")
+    for host in os.getenv("ALLOWED_HOSTS", "").split(",")
     if host.strip()
 ]
+
 
 # =========================================================
 # APPLICATION
