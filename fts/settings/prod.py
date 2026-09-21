@@ -5,9 +5,11 @@ DEBUG = False
 
 # Add your actual production domains/IPs
 ALLOWED_HOSTS = [
+    "fts-er1o.onrender.com",
+    ".onrender.com",
     "localhost",
     "127.0.0.1",
-    ]
+]
 
 # HTTPS & Proxy Settings (Critical if behind Nginx/Traefik)
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
@@ -28,5 +30,6 @@ SECURE_HSTS_PRELOAD = True
 
 # CSRF (HTTPS only in production)
 CSRF_TRUSTED_ORIGINS = [
-    "https://support.johnnette.com",
+    "https://fts-er1o.onrender.com",
+    "https://*.onrender.com",
 ]

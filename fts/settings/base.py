@@ -2,6 +2,7 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
+
 # Points to project root where manage.py and .env live
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -10,13 +11,19 @@ load_dotenv(os.path.join(BASE_DIR, ".env"))
 # =========================================================
 # SECURITY & DEBUG
 # =========================================================
-DEBUG = os.getenv("DJANGO_DEBUG", "False").lower() in ("true", "1", "yes")
+ENVIRONMENT = os.getenv("ENVIRONMENT",  default="dev")
+
+if os.getenv("ENVIRONMENT") == "dev":
+    DEBUG=True
+else:
+    DEBUG=False 
 
 
-SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 if not SECRET_KEY:
-    raise ValueError("DJANGO_SECRET_KEY is not set")
+    raise ValueError("SECRET_KEY is not set")
 
 
 ALLOWED_HOSTS = [
@@ -77,23 +84,23 @@ WSGI_APPLICATION = "fts.wsgi.application"
 # DATABASE
 # =========================================================
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": os.getenv("DB_NAME"),
-#         "USER": os.getenv("DB_USER"),
-#         "PASSWORD": os.getenv("DB_PASSWORD"),
-#         "HOST": os.getenv("DB_HOST"),
-#         "PORT": os.getenv("DB_PORT"),
-#     }
-# }
-
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("DB_NAME"),
+        "USER": os.getenv("DB_USER"),
+        "PASSWORD": os.getenv("DB_PASSWORD"),
+        "HOST": os.getenv("DB_HOST"),
+        "PORT": os.getenv("DB_PORT"),
     }
 }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
 
 # =========================================================
 # PASSWORD VALIDATION
